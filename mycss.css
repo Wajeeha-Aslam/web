@@ -136,8 +136,10 @@
       margin: 5px 0;
       color:darkgray;
   }
+
+ 
   
-  .social a{
+  .social a ,    .info a{
       color:darkgray;
   }
   
