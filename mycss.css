@@ -138,11 +138,11 @@
 
  
   
-  .social a ,    .info a , .info a {
+  .social a ,    .info a  {
       color:darkgray;
   }
   
-  .social a:hover{
+  .social a:hover,.info a:hover{
   
       color: #f0f0f0;
   }
