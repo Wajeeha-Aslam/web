@@ -19,8 +19,7 @@
   
   
   
-  /* profile */
-  
+ 
   
   .profile {
       display: flex;
@@ -55,7 +54,7 @@
   
   .leftside {
       width:30%;
-      min-height: 100vh; /* Make sure it fills the height */
+      min-height: 100vh; 
       background: #1e3a56;
       color:white;
       padding:20px;
@@ -69,7 +68,7 @@
   .leftside img {
       float: inline-start;
       width:100px;
-      border-radius:50%;   /* circularimage*/
+      border-radius:50%;   
       margin-bottom: 10px;
       
       
@@ -81,7 +80,7 @@
   .rightside {
       width: 70%;
       padding: 20px;
-      text-align: left; /* Aligns the content to the left */
+      text-align: left; 
   }
   
   
@@ -150,7 +149,7 @@
   
   
   
-  /* Progress Bars */
+  
   .progress {
       background: #ddd;
       height: 5px;
