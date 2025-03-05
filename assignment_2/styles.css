@@ -1,4 +1,4 @@
-/* General Styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,12 +6,12 @@
     font-family: 'Playfair Display', serif;
 }
 
-/* Body */
+
 body {
     background: #f5f5f5;
 }
 
-/* Header */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -24,40 +24,39 @@ header {
     z-index: 1000;
 }
 
-/* Menu Icon */
+
 .menu-icon i {
     font-size: 24px;
     cursor: pointer;
 }
 
-/* Logo */
 .logo {
     text-align: center;
 }
 
 .logo img {
-    height: 50px; /* Adjust logo size */
+    height: 50px; 
 }
 
 .logo p {
     font-size: 7px;
     letter-spacing: 2px;
-    color: #8b5a2b; /* Brownish Color */
+    color: #8b5a2b; 
 }
 
 .logo h3{
     font-size: 19px;
     letter-spacing: 2px;
-    color: #8b5a2b; /* Brownish Color */
+    color: #8b5a2b; 
 }
-/* Icons */
+
 .icons i {
     font-size: 20px;
     margin-left: 15px;
     cursor: pointer;
 }
 
-/* Hero Section */
+
 .hero {
     position: relative;
     height: 90vh;
@@ -67,10 +66,10 @@ header {
     justify-content: center;
     text-align: center;
     color: white;
-    padding-top: 100px; /* Offset for fixed header */
+    padding-top: 100px; 
 }
 
-/* Hero Text */
+
 .hero-content h3 {
     font-size: 18px;
     margin-bottom: 10px;
@@ -83,7 +82,7 @@ header {
     margin-bottom: 20px;
 }
 
-/* SHOP NOW Button */
+
 .bton {
     display: inline-block;
     padding: 10px 30px;
@@ -112,8 +111,8 @@ header {
 .slider img {
 
     mix-blend-mode: multiply;
-    max-width: 150px; /* Adjust this value to make the logos smaller */
-    max-height: 80px; /* Adjust this value to keep images uniform */
+    max-width: 150px; 
+    max-height: 80px; 
     display: inline-block;
     padding: 10px;
     animation: slide 10s linear infinite;
@@ -134,7 +133,7 @@ header {
 .heroes-section {
     text-align: center;
     padding: 50px 20px;
-    background-color: #f8f8f8; /* Light gray background */
+    background-color: #f8f8f8; 
 }
 
 .title {
@@ -165,13 +164,12 @@ header {
 .product {
     position: relative;
     text-align: center;
-    width: 250px; /* Adjust based on design */
+    width: 250px; 
     overflow: hidden;
 }
 
 .product img {
-    /* width: 100%;
-    height: auto; */
+   
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -186,7 +184,7 @@ header {
 }
 
 .product:hover .hover-text {
-    opacity: 1; /* Make text visible on hover */
+    opacity: 1; 
 }
 
 
@@ -202,7 +200,7 @@ header {
     text-align: center;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    width: 80%; /* Ensure it fits well within the product */
+    width: 80%; 
 }
 .product h3 {
     font-size: small;
@@ -247,17 +245,17 @@ header {
 
 
 
-/* Main section layout */
+
 .section {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    gap: 20px; /* Adds space between the video and image */
-    padding: 40px 0; /* Adds vertical spacing above and below */
+    gap: 20px; 
+    padding: 40px 0; 
 }
 
-/* Video section */
+
 .video-container {
     position: relative;
     width: 50%;
@@ -270,7 +268,7 @@ header {
 }
 
 .video-container, .image-container {
-    width: 50%; /* Ensures some space remains on both sides */
+    width: 50%; 
 }
 
 .video-text {
@@ -284,7 +282,7 @@ header {
     font-weight: bold;
 }
 
-/* Image section */
+
 .image-container {
     position: relative;
     width: 50%;
@@ -296,7 +294,7 @@ header {
     display: block;
 }
 
-/* Text overlay */
+
 .text-overlay {
     color: #000;
     position: absolute;
@@ -353,7 +351,7 @@ header {
     padding: 60px 20px;
     position: relative;
     background: #fff;
-    background: url('scissors.png') no-repeat center/cover; /* Background image */
+    background: url('scissors.png') no-repeat center/cover; 
     color: black; 
 }
 
@@ -388,24 +386,24 @@ header {
     background-color: #0f1a12;
 }
 
-/* Scissors Images */
+
 .repair-images .left-image {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 250px; /* Adjust size */
+    width: 250px; 
 }
 
 .repair-images .right-image {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 250px; /* Adjust size */
+    width: 250px; 
 }
 
 @media (max-width: 768px) {
     .repair-images img {
-        width: 150px; /* Smaller images for mobile */
+        width: 150px;
     }
 }
 
@@ -467,7 +465,7 @@ header {
 
 
 
-/* Quote Section */
+
 .quote-container {
     max-width: 700px;
     padding: 20px;
@@ -485,7 +483,48 @@ header {
 }
 
 .author {
-    font-size: 20px;
+    text-align: center;
+    font-size: 35px;
     font-weight: bold;
     color: #000;
+}
+
+
+
+
+
+.blog-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.blog-card {
+    max-width: 31%;
+    background: white;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+.blog-card img {
+    
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.blog-card h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+.blog-card p {
+    font-size: 14px;
+    color: #555;
+}
+.date {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #999;
 }
