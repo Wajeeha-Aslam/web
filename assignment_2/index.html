@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
     
@@ -150,29 +152,65 @@
 
 
 
-    <section class="as-worn-by">
-        <h2>As worn by...</h2>
-        <div class="celebrity-container">
-            <div class="celebrity">
-                <img src="michael_sheen.png" alt="Michael Sheen">
-                <p>Michael Sheen</p>
+   
+    <div class="container mt-4">
+        <h2 class="text-center">As Worn By...</h2>
+        <div id="celebrityCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="michael_sheen.png" class="d-block w-100" alt="Michael Sheen">
+                            <p>Michael Sheen</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="cillian_murphy.png" class="d-block w-100" alt="Cillian Murphy">
+                            <p>Cillian Murphy</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="eddie_redmayne.png" class="d-block w-100" alt="Eddie Redmayne">
+                            <p>Eddie Redmayne</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="stormzy.png" class="d-block w-100" alt="Stormzy">
+                            <p>Stormzy</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="stormzy.png" class="d-block w-100" alt="Stormzy">
+                            <p>Stormzy</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="kit.png" class="d-block w-100" alt="Kit">
+                            <p>Kit</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="henry.png" class="d-block w-100" alt="Henry">
+                            <p>Henry</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="david.png" class="d-block w-100" alt="David">
+                            <p>David</p>
+                        </div>
+                   
+                    </div>
+                </div>
             </div>
-            <div class="celebrity">
-                <img src="cillian_murphy.png" alt="Cillian Murphy">
-                <p>Cillian Murphy</p>
-            </div>
-            <div class="celebrity">
-                <img src="eddie_redmayne.png" alt="Eddie Redmayne">
-                <p>Eddie Redmayne</p>
-            </div>
-            <div class="celebrity">
-                <img src="stormzy.png" alt="Stormzy">
-                <p>Stormzy</p>
-            </div>
+            
+            <button class="carousel-control-prev" type="button" data-bs-target="#celebrityCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#celebrityCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
         </div>
-    </section>
-
-
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
 
 
     <div class="quote-container">
@@ -209,6 +247,63 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About</h3>
+                <p>Every garment is handcrafted in the last remaining clothing factory in the world's first industrial city.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Care</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Details</h3>
+                <p>1 Cottenham Lane, Salford, Manchester, M3 7LJ</p>
+                <p>Telephone: +44 (0)161 834 3062</p>
+                <p>Our customer support is available Monday to Friday: 8:30am-4pm GMT*</p>
+                <p>*Please note during holiday seasons and bank holidays, opening hours may differ.</p>
+            </div>
+            <div class="footer-section newsletter">
+                <h3>Sign up for the latest news</h3>
+                <form>
+                    <input type="email" placeholder="E-mail">
+                    <button type="submit"><i class="bi bi-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+            <div class="payments">
+                <img src="images/visa.png" alt="Visa">
+                <img src="images/mastercard.png" alt="Mastercard">
+                <img src="images/paypal.png" alt="PayPal">
+                <img src="images/applepay.png" alt="Apple Pay">
+            </div>
+        </div>
+    </footer>
 
 
 
