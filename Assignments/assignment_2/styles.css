@@ -73,8 +73,8 @@ header {
 .video-container {
     position: fixed;
     height: 100vh;
-    object-fit:fill;
     z-index: -1;
+   
 
 }
 
