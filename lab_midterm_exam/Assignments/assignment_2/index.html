@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private White V.C.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+   
+    <!DOCTYPE html>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+
+    .menu-bar {
+      position: relative;
+    }
+
+    .menu-item {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    .mega-menu {
+      position: absolute;
+      top: 45px;
+      left: 0;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      padding: 20px;
+      width: 600px;
+      display: none;
+      z-index: 1000;
+    }
+
+    .mega-menu.active {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .task {
+      padding: 10px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .task:hover {
+      background-color: #f9f9f9;
+    }
+
+    .task-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .task-desc {
+      font-size: 0.9em;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .task-link {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .task-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+
+    <div class="menu-icon">
+        <div class="menu-icon" id="menuToggle">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+    <div class="logo">
+        <h3>Private White V.C.</h3>
+        <p>HANDMADE IN ENGLAND</p>
+    </div>
+    <div class="icons">
+        <i class="fa fa-search"></i> 
+        <i class="fa fa-user"></i> 
+        <i class="fa fa-shopping-cart"></i> 
+    </div>
+    
+<div class="menu-bar">
+  <div class="menu-item" id="menu-trigger">MENU</div>
+  <div class="mega-menu" id="mega-menu">
+    <div class="task">
+      <div class="task-title">assignment 1</div>
+      <div class="task-desc">E-Commerce Landing Page</div>
+      <a href="http://127.0.0.1:5500/lab_midterm_exam/Assignments/assignment_2/index.html" target="_blank" class="task-link">Open </a>
+    </div>
+    <div class="task">
+      <div class="task-title">assignment 2</div>
+      <div class="task-desc">Create a CV using HTML and CSS.</div>
+      <a href="http://127.0.0.1:5500/lab_midterm_exam/Assignments/assignment_2/assignment_1/index.html" target="_blank" class="task-link">Open</a>
+    </div>
+    <div class="task">
+      <div class="task-title">Lab Task 1</div>
+      <div class="task-desc">Landing Page with Bootstrap</div>
+      <a href="http://127.0.0.1:5500/lab_midterm_exam/Assignments/labtask_1/labtask_1.html" target="_blank" class="task-link">Open </a>
+    </div>
+    <div class="task">
+      <div class="task-title">Lab Task 2</div>
+      <div class="task-desc">Checkout Page</div>
+      <a href="http://127.0.0.1:5500/lab_midterm_exam/Assignments/assignment_2/labtask_2/index.html" target="_blank" class="task-link">Open </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const trigger = document.getElementById('menu-trigger');
+  const megaMenu = document.getElementById('mega-menu');
+
+  // Toggle menu visibility
+  trigger.addEventListener('click', function (e) {
+    e.stopPropagation(); // prevent the event from bubbling to window
+    const isActive = megaMenu.classList.contains('active');
+    document.querySelectorAll('.mega-menu').forEach(menu => menu.classList.remove('active'));
+    if (!isActive) {
+      megaMenu.classList.add('active');
+    }
+  });
+
+  // Close menu when clicking outside
+  window.addEventListener('click', function () {
+    megaMenu.classList.remove('active');
+  });
+
+  // Prevent closing when clicking inside the mega menu
+  megaMenu.addEventListener('click', function (e) {
+    e.stopPropagation();
+  });
+</script>
+ 
+
+
+
+
+
+
+
+
+
+    <section class="hero">
+        <video autoplay muted loop class="video-container">
+            <source src="main.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h3>NEW ARRIVAL</h3>
+            <h1>THE STEALTH BOMBER</h1>
+            <a href="#" class="bton">SHOP NOW</a>
+        </div>
+    </section>
+
+    <div class="slider">
+        <img src="wallstreet.png" alt="The Wall Street Journal">
+        <img src="monocle.png" alt="Monocle">
+        <img src="hyperbeast.png" alt="Hypebeast">
+        <img src="gq.png" alt="GQ">
+        <img src="bbc.png" alt="BBC">
+        <img src="wallstreet.png" alt="The Wall Street Journal">
+        <img src="monocle.png" alt="Monocle">
+        <img src="hyperbeast.png" alt="Hypebeast">
+        <img src="gq.png" alt="GQ">
+        <img src="wallstreet.png" alt="The Wall Street Journal">
+        <img src="monocle.png" alt="Monocle">
+        <img src="hyperbeast.png" alt="Hypebeast">
+    </div>
+
+    <section class="heroes-section">
+        <h2 class="title">The Heroes.</h2>
+        <p class="description">
+            The exceptional outerwear we’re known for. We’ve been making these jackets over and over for many years, 
+            refining the fit, fabric, texture, and durability with each new iteration. They’re the best of the best, 
+            and the culmination of our craft.
+        </p>
+    </section>
+
+    <section class="product-showcase">
+        <div class="product">
+            <img src="flight-jacket.png" alt="The Flight Jacket">
+            <h3>The Flight Jacket</h3>
+            <div class="hover-text">
+                The Flight Jacket <br>
+                Ruggedly comfortable: crafted with doeskin wool, combining a plush softness with a durable weave.
+            </div>
+        </div>
+        <div class="product">
+            <img src="flight-jacket.png" alt="The Peacoat">
+            <h3>The Peacoat</h3>
+        </div>
+        <div class="product">
+            <img src="flight-jacket.png" alt="The Ventile Mac">
+            <h3>The Ventile® Mac</h3>
+        </div>
+        <div class="product">
+            <img src="flight-jacket.png" alt="The Moleskin Bomber">
+            <h3>The Moleskin Bomber</h3>
+        </div>
+    </section>
+
+    <div class="shop-button-container">
+        <button class="shop-button">SHOP THE HEROES</button>
+    </div>
+
+    <div class="section">
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-text">
+                <h2>MADE IN MANCHESTER FROM</h2>
+                <h1>sheep to shop.</h1>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="makers.png" alt="Meet The Makers">
+            <div class="text-overlay">
+                <h2>Meet The Makers</h2>
+                <p>
+                    Many of our makers have honed their craft over many years with us, often decades.
+                    Their passion, commitment, attention to detail, grit, determination, and humour
+                    are a joy to behold every single day.
+                </p>
+                <button class="btn">ACQUAINT YOURSELF</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="lifetime-repair">
+        <div class="repair-content">
+            <h2>Lifetime repair.</h2>
+            <p>
+                All our clothing comes with a lifetime repair service. Which means we’ll hand-fix any imperfections 
+                free of charge, should they arise over the years. (But because they’ve been made with the most 
+                durable materials, it’s unlikely you’ll need us to.)
+            </p>
+            <button class="repair-btn">REQUEST A REPAIR</button>
+        </div>
+        <div class="repair-images"></div>
+    </section>
+
+  
+    <section class="blog-section">
+        <div class="blog-card">
+            <img src="main.jpg" alt="Court Jacket">
+            <h2>Introducing: The Permanent Style Court Jacket</h2>
+            <p>The Court Jacket is an elevated piece of sportswear - a highly water-resistant jacket made in natural materials and vintage styling.</p>
+            <span class="date">2024</span>
+        </div>
+        <div class="blog-card">
+            <img src="main.jpg" alt="L.S. Lowry">
+            <h2>A Tribute To L.S. Lowry</h2>
+            <p>This autumn, we celebrate Lowry’s artistic legacy and our shared connection to Manchester’s industrial past.</p>
+            <span class="date">Oct 29, 2024</span>
+        </div>
+        <div class="blog-card">
+            <img src="main.jpg" alt="Wax Walker">
+            <h2>(Re)Introducing The Permanent Style Wax Walker</h2>
+            <p>During September and October, we will be restocking all of the outerwear collaborations we do with Private White VC.</p>
+            <span class="date">Oct 1, 2024</span>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About</h3>
+                <p>Every garment is handcrafted in the last remaining clothing factory in the world's first industrial city.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Care</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Details</h3>
+                <p>1 Cottenham Lane, Salford, Manchester, M3 7LJ</p>
+                <p>Telephone: +44 (0)161 834 3062</p>
+                <p>Our customer support is available Monday to Friday: 8:30am-4pm GMT*</p>
+                <p>*Please note during holiday seasons and bank holidays, opening hours may differ.</p>
+            </div>
+            <div class="footer-section newsletter">
+                <h3>Sign up for the latest news</h3>
+                <form>
+                    <input type="email" placeholder="E-mail">
+                    <button type="submit"><i class="bi bi-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+            <div class="payments">
+                <img src="images/visa.png" alt="Visa">
+                <img src="images/mastercard.png" alt="Mastercard">
+                <img src="images/paypal.png" alt="PayPal">
+                <img src="images/applepay.png" alt="Apple Pay">
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
