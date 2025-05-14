@@ -9,7 +9,7 @@ server.use(expresslayouts);
 server.set("view engine","ejs");
 
 
-server.get("/landingpage.html",(req,res)=>{
+server.get("/landingpage",(req,res)=>{
     res.render("landingpage");
 });
 
