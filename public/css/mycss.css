@@ -1,0 +1,212 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: arial,sans-serif;
+  } 
+  
+  body {
+  
+      background-color: #f0f0f0;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: flex-start;
+  
+  }
+  
+  
+  
+  
+ 
+  
+  .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      padding: 20px;
+  }
+   
+  
+  
+  .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #ffffff;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+      margin-top: 10px;
+  }
+  
+  .student-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ddd;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 10px;
+  }
+  
+ 
+  
+  .leftside {
+      width:30%;
+      min-height: 100vh; 
+      background: #1e3a56;
+      color:white;
+      padding:20px;
+      text-align: center;
+  }
+  
+  
+  
+  
+  
+  .leftside img {
+      float: inline-start;
+      width:100px;
+      border-radius:50%;   
+      margin-bottom: 10px;
+      
+      
+      
+  }
+  
+  
+  
+  .rightside {
+      width: 70%;
+      padding: 20px;
+      text-align: left; 
+  }
+  
+  
+  .rightside h3 {
+  
+       border-bottom: 2px solid #1e3a56;;
+       padding-bottom: 5px;
+  
+       margin-bottom:10px ;
+      }
+  
+  .rightside p{
+      margin-bottom: 10px;
+  }
+  
+  
+
+  
+  .cv {
+      display: flex;
+      width: 80%;
+      max-width: 900px;
+      background: white;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  .section {
+      margin-bottom: 20px;
+  }
+  
+  .section h3 {
+      background: #f4f4f4;
+      padding: 10px;
+      font-size: 16px;
+      border-left: 4px solid #1e3a56;
+  }
+  
+  
+  .info, .social {
+      margin-top: 20px;
+      text-align: center;
+  }
+  
+  .info h3, .social h3 {
+      border-bottom: 2px solid rgba(255, 255, 255, 0.603);
+      padding-bottom: 5px;
+  }
+  
+  .info p, .social p {
+      font-size: 14px;
+      margin: 5px 0;
+      color:darkgray;
+  }
+
+ 
+  
+  .social a ,    .info a  {
+      color:darkgray;
+  }
+  
+  .social a:hover,.info a:hover{
+  
+      color: #f0f0f0;
+  }
+  
+  
+  
+  
+  .progress {
+      background: #ddd;
+      height: 5px;
+      width: 100%;
+      border-radius: 5px;
+      margin: 5px 0;
+      position: relative;
+  }
+  
+  .progress div {
+      height: 5px;
+      border-radius: 5px;
+  }
+  
+  .ml {
+      width: 50%;
+      background: #1e3a56;
+  }
+  
+  .htmlcss {
+      width: 55%;
+      background: #1e3a56;
+  }
+  
+  .cloud {
+      width: 65%;
+      background: #1e3a56;
+  
+  }
+  .ai {
+      width: 75%;
+      background: #1e3a56;
+  }
+  
+  
+  
+  
+  
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+  }
+  
+   td {
+      border-color:#f4f4f4;
+      padding: 10px;
+      text-align: left;
+  }
+  
+  
+  
+  tr:nth-child(even) {
+      background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+      background-color: #ddd;
+  }
+  

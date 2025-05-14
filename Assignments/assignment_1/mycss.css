@@ -210,3 +210,48 @@
       background-color: #ddd;
   }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .projects-wrapper {
+    max-width: 100%;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+}
+
+.projects-wrapper p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+.leftside {
+    width: 25%;
+}
+
+.rightside {
+    width: 75%;
+}
+.cv {
+    width: 90%;
+    max-width: 1200px; /* from 900px */
+}
