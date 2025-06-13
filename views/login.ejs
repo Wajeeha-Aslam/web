@@ -1,0 +1,31 @@
+
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="/css/logincss.css">
+</head>
+
+
+<body>
+    
+    <div class="container">
+     <div class="login-box">
+     <h1>Login</h1>
+       <form method="POST" action="/user/login">
+ 
+         <label for="">Email</label>
+        <input type="text"  required name="email"placeholder="E-mail">
+         <label for="">Password</label>
+        <input type="text" required name="password"placeholder="Password">
+        <div class="forgot"><a href="#">Forgot your password?</a></div>
+        <button type="submit">Login</button>
+         <div class="signup">
+          <a href="/signup">Sign up</a>
+        </div>
+    </form>
+       </div>
+  </div>
+</body>
+</html>
