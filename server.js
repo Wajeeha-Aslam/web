@@ -37,7 +37,7 @@ server.use(expresslayouts);
 const User = require("./models/user");
 const userRoutes = require("./routes/user");
 const staticRoutes = require("./routes/staticrouter");
-const{restrictedToLoggedinUserOnly, checkSessionAuth}=require("./middlewares/checkSessionAuth")
+const{restrictedToLoggedinUserOnly}=require("./middlewares/checkSessionAuth")
 
 
 
