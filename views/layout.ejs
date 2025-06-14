@@ -19,11 +19,28 @@
             <h3>Private White V.C.</h3>
             <p>HANDMADE IN ENGLAND</p>
         </div>
+       
         <div class="icons">
-            <i class="fa fa-search"></i> 
-            <i class="fa fa-user"></i> 
-            <i class="fa fa-shopping-cart"></i> 
-        </div>
+               <i class="fa fa-search"></i>
+               <% if (user) { %>
+               <a href="/profile"><i class="fa fa-user"></i></a>
+               <% } else { %>
+                <a href="/login"><i class="fa fa-user"></i></a>
+               <% } %>
+               <i class="fa fa-shopping-cart"></i>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const userIcon = document.getElementById('user-icon');
+    if (userIcon) {
+      userIcon.style.cursor = 'pointer';
+      userIcon.addEventListener('click', () => {
+        window.location.href = '/login';
+      });
+    }
+  });
+</script>
+
     </header>
 
     <%- body %>

@@ -4,7 +4,36 @@ const session = require("express-session");
 const mongoose= require("mongoose");
 const bcrypt = require("bcrypt");
 let server = express();
+
+
+
+server.use(express.static("public"));
+
+
 const  cookieParser = require("cookie-parser")
+server.use(express.urlencoded({ extended: true }));
+server.use(cookieParser());
+// Session setup
+server.use(session({
+  secret: 'yourSecretKey',
+  resave: false,
+  saveUninitialized: false
+}));
+
+// After session middleware:
+server.use((req, res, next) => {
+  res.locals.user = req.session.userId ? /* fetch or flag */ true : null;
+  next();
+});
+
+
+
+
+server.set("view engine","ejs");
+server.use(expresslayouts);
+
+
+
 const User = require("./models/user");
 const userRoutes = require("./routes/user");
 const staticRoutes = require("./routes/staticrouter");
@@ -12,21 +41,12 @@ const{restrictedToLoggedinUserOnly, checkSessionAuth}=require("./middlewares/che
 
 
 
+
 mongoose.connect('mongodb://localhost:27017/webproducts').then(() => 
   console.log('✅ MongoDB connected successfully'));
 
-server.use(express.static("public"));
 
 
-server.use(express.urlencoded({ extended: true }));
-server.use(cookieParser());
-
-// Session setup
-server.use(session({
-  secret: 'yourSecretKey',
-  resave: false,
-  saveUninitialized: false
-}));
 
 
 server.use("/user",userRoutes);
@@ -43,15 +63,6 @@ server.get('/landingpage-test', (req, res) => {
 
 
 
-
-server.use(expresslayouts);
-
-
-
-
-
-server.use(express.static("public"));
-server.set("view engine","ejs");
 
 
 
@@ -74,7 +85,7 @@ server.get('/logout', (req, res) => {
 });
 
 server.get('/login', (req, res) => {
-  res.render('login'); 
+  res.render('login',{layout:false}); 
 });
 
 
