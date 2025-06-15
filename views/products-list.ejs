@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Products List</title>
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body>
+
+ <style>body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table th {
+  background-color: #f2f2f2;
+}
+
+img {
+  max-width: 100px;
+}
+
+a.btn {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  background:  #9b5d3d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+a{ 
+  color: #9b5d3d;
+}
+a.btn:hover {
+  background:  #9b5d3d;
+}
+
+button {
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #ddd;
+  background-color: #9b5d3d;
+}
+
+header {
+  background:  #9b5d3d;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+</style>
+  <header>
+  <nav>
+    <a href="/admin/products">Products</a>
+    <a href="/admin/products/add">Add Product</a>
+    <a href="/admin/orders">Orders</a> <!-- ✅ CORRECT! -->
+    <a href="/admin/logout">Logout</a>
+  </nav>
+</header>
+  <h1>Admin Products</h1>
+
+  <a href="/admin/products/add" class="btn">+ Add New Product</a>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% products.forEach(product => { %>
+        <tr>
+          <td><%= product.title %></td>
+          <td>$<%= product.price.toFixed(2) %></td>
+          <td><%= product.description %></td>
+          <td>
+            <% if (product.imageUrl) { %>
+              <img src="<%= product.imageUrl %>" alt="Product Image" style="max-width: 100px;">
+            <% } else { %>
+              No Image
+            <% } %>
+          </td>
+          <td>
+            <a href="/admin/products/edit/<%= product._id %>">Edit</a>
+            <form action="/admin/products/delete/<%= product._id %>" method="POST" style="display:inline;">
+              <button type="submit" onclick="return confirm('Are you sure?');">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

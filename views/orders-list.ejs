@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Orders List</title>
+</head>
+<body>
+
+  <style>/* Reset & base styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color:  #9b5d3d;
+}
+
+header {
+  background:  #9b5d3d;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+main h2 {
+  margin-bottom: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+thead {
+  background:  #9b5d3d;
+  color: #fff;
+}
+
+th, td {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  text-align: left;
+  vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+  background: #f1f1f1;
+}
+
+ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background: #9b5d3d;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #9b5d3d;
+}
+</style>
+ 
+  <header>
+  <nav>
+    <a href="/admin/products">Products</a>
+    <a href="/admin/products/add">Add Product</a>
+    <a href="/admin/orders">Orders</a> <!-- ✅ CORRECT! -->
+    <a href="/admin/logout">Logout</a>
+  </nav>
+</header>
+
+  <main>
+
+     <!-- <pre><%= JSON.stringify(orders, null, 2) %></pre> -->
+      <a href="/admin/orders"><h2>All Orders</h2></a>
+   
+     
+    <table>
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Items</th>
+          <th>Total ($)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach(order => { %>
+  <tr>
+  <td>
+  <ul>
+    <% if (Array.isArray(order.items)) { %>
+      <% order.items.forEach(item => { %>
+        <li><%= item.productId || 'Unknown' %> (x<%= item.qty %>)</li>
+      <% }) %>
+    <% } else { %>
+      <li>No items</li>
+    <% } %>
+  </ul>
+</td>
+
+<td>$<%= order.total.toFixed(2) %></td>
+<td>$<%= order.total.toFixed(2) %></td>
+<td><%= order.status %></td>
+
+
+  </tr>
+<% }) %>
+
+      </tbody>
+    </table>
+  </main>
+
+</body>
+</html>

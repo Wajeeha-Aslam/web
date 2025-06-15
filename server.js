@@ -43,9 +43,16 @@ const userRoutes = require("./routes/user");
 const staticRoutes = require("./routes/staticrouter");
 const Product = require('./models/product');
 
+
+
+
+
 mongoose.connect('mongodb://localhost:27017/webproducts').then(() => 
   console.log('✅ MongoDB connected successfully'));
 
+
+const adminRoutes = require("./admin/routes/adminRoutes");
+server.use('/admin', adminRoutes);
 
 
 const ordersRouter = require('./routes/orders');

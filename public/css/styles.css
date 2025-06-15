@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Playfair Display', serif;
+    overflow-x: hidden;
 }
 
 
@@ -722,44 +723,10 @@ footer {
 
 
 
-   .icons a {
-  color: inherit;       /* match icon color */
-  text-decoration: none;
-}
-.icons a:hover {
-  color: #ff6600 ;
-}
 
 
-.fa-bars {
-  display: inline-block; 
-  font-size: 24px;        
-  cursor: pointer;      
-}
+    
 
-
-
-.side-menu {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: white; 
-  overflow-x: hidden;
-  transition: 0.3s;
-  padding-top: 60px; 
-}
-
-.side-menu button {
-  position: absolute;
-  top: 20px;
-  right: 25px;
-  font-size: 36px;
-  background: none;
-  border: none;
-}
 
 .hero {
     width: 100%;
@@ -786,12 +753,27 @@ footer {
 }
 
 
-.sidebar {
-  position: fixed;
+#sideMenu {
+  position: fixed;       /* Make the container fixed */
   top: 0;
   left: 0;
-  width: 340px;
   height: 100vh;
+  width: 0;
+  overflow: hidden;      /* Hide child content */
+  background-color: #fff;
+  z-index: 1000;
+  transition: width 0.3s ease;
+}
+
+
+
+
+.sidebar {
+  
+  top: 0;
+  left: 0;
+  width: 250px;         
+  height: 100%;
   background-color: white;
   box-shadow: 2px 0 8px rgba(0,0,0,0.1);
   padding: 30px 20px;
@@ -844,4 +826,62 @@ footer {
 .bottom-links a {
   text-decoration: none;
   color: #111;
+}
+   .icons a {
+  color: inherit;       /* match icon color */
+  text-decoration: none;
+}
+.icons a:hover {
+  color: #ff6600 ;
+}
+
+
+.fa-bars {
+  display: inline-block; 
+  font-size: 24px;        
+  cursor: pointer;      
+}
+
+
+
+.side-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white; 
+  overflow-x: hidden;
+  transition: width 0.3s;
+  padding-top: 60px; 
+}
+
+.side-menu button {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 36px;
+  background: none;
+  border: none;
+}
+
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 0;
+  overflow-x: hidden;
+  background-color: white;
+  z-index: 1000;
+  transition: 0.3s ease;
+}
+
+.closeBtn {
+  font-size: 30px;
+  cursor: pointer;
+  margin: 15px;
+  display: block;
 }

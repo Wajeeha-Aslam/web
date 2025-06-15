@@ -17,6 +17,7 @@ router.get("/my-orders", isLoggedIn, async (req, res) => {
     const userId = req.session.user._id;
 
     const orders = await Order.find({ userId })
+      .populate("user") 
       .populate("products.productId")
       .sort({ createdAt: -1 });
 

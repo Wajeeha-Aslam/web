@@ -1,23 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/product');
-const Order = require('../models/order'); // FIXED: relative path
+const Order = require('../models/order'); 
 const auth = require('../middlewares/auth');
 
-// GET /my-orders — HTML page
-// router.get('/my-orders', auth, async (req, res) => {
-//   try {
-//     const userId = req.session.userId; // ✅ must be set at login
-//     const orders = await Order.find({ user: userId })
-//       .sort({ createdAt: -1 })
-//       .populate('items.productId'); // ✅ so productId has name, price, etc.
 
-//     res.render('my-order', { orders }); // ✅ render EJS, not JSON
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ message: 'Failed to fetch your orders' });
-//   }
-// });
 
 router.get('/my-orders', auth, async (req, res) => {
   try {
@@ -63,6 +50,37 @@ router.get('/create-order', auth, async (req, res) => {
     res.status(500).send('Failed to create fake order');
   }
 });
+
+
+
+
+
+// router.post('/cart/add', async (req, res) => {
+//   try {
+//     const { productId } = req.body;
+//     const userId = req.session.user._id;
+
+//     let order = await Order.findOne({ user: userId });
+
+//     if (!order) {
+//       order = new Order({ user: userId, products: [] });
+//     }
+
+//     const existingItem = order.products.find(p => p.productId.equals(productId));
+
+//     if (existingItem) {
+//       existingItem.quantity += 1;
+//     } else {
+//       order.products.push({ productId });
+//     }
+
+//     await order.save();
+//     res.status(200).json({ success: true });
+//   } catch (err) {
+//     console.error('Error adding to cart:', err);
+//     res.status(500).json({ success: false });
+//   }
+// });
 
 
 module.exports = router;

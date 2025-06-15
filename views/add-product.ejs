@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Product</title>
+ 
+</head>
+<body>
+   <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color:  #9b5d3d;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color:  #9b5d3d;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+      color:  #9b5d3d;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    input[type="submit"] {
+      margin-top: 25px;
+      width: 100%;
+      background-color:  #9b5d3d;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color:  #9b5d3d;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color:  #9b5d3d;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        padding: 20px;
+      }
+    }
+
+   
+  </style>
+
+
+ 
+  
+  <h1>Add Product</h1>
+  <form action="/admin/products/add" method="POST">
+    <label>Title</label>
+    <input type="text" name="title" required>
+
+    <label>Price</label>
+    <input type="number" name="price" step="0.01" required>
+
+    <label>Description</label>
+    <textarea name="description" required></textarea>
+
+    <label>Image URL</label>
+    <input type="text" name="imageUrl">
+
+    <input type="submit" value="Add Product">
+  </form>
+  <a href="/admin/products">← Back to Products</a>
+</body>
+</html>
