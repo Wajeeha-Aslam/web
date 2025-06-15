@@ -1,19 +1,11 @@
 const express = require("express");
 const {handleUserSignup,handleUserLogin} = require("../controllers/user");
-
+const { logoutUser } = require('../controllers/user');
 const router = express.Router();
 
 
 router.post("/signup",handleUserSignup);
 router.post("/login",handleUserLogin);
-
+router.get('/logout', logoutUser);
 module.exports = router;
 
-// const express = require("express");
-// const router = express.Router();
-// const { handleUserSignup, handleUserLogin } = require("../controllers/user");
-
-// router.post("/", handleUserSignup);
-// router.post("/login", handleUserLogin);
-
-// module.exports = router;

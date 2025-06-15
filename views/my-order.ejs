@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Orders</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    .order {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 5px;
+    }
+    .order h2 {
+      margin: 0 0 0.5rem 0;
+    }
+    .products {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .products li {
+      margin: 0.3rem 0;
+    }
+    .date {
+      color: #555;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Orders</h1>
+
+  <% if (orders.length === 0) { %>
+    <p>You have no orders yet.</p>
+  <% } %>
+<% orders.forEach(order => { %>
+  <div class="order">
+    <h2>Order ID: <%= order._id %></h2>
+    <p class="date">Placed on: <%= order.createdAt.toDateString() %></p>
+
+    <h3>Products:</h3>
+    <ul class="products">
+      <% order.items.forEach(item => { %>
+  <li>
+    <% if (item.productId) { %>
+      <strong><%= item.productId.name %></strong> — 
+      Price: $<%= item.productId.price %> — 
+      Quantity: <%= item.qty %>
+    <% } else { %>
+      <em>Product no longer available</em>
+    <% } %>
+  </li>
+<% }); %>
+
+
+    </ul>
+
+    <p><strong>Total:</strong> $<%= order.total %></p>
+  </div>
+<% }); %>
+
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,13 +6,54 @@
     <title>Private White V.C.</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
           <header>
         <div class="menu-icon">
-            <i class="fa fa-bars"></i>
+                <i class="fa fa-bars" onclick="openMenu()"></i>
+            <div id="sideMenu" class="side-menu">
+           <button onclick="closeMenu()">×</button>
+
+            <div class="sidebar">
+                <button class="close-btn">&times;</button>
+                <ul class="menu-list">
+                    <li><a href="#">New</a></li>
+                    <li><a href="#">Heroes</a></li>
+                    <li><a href="#">Royal Hospital Chelsea</a></li>
+                    <li><a href="#">Spycraft - Spring 25</a></li>
+                    <li><a href="#">Permanent Style</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Coats & Jackets</a></li>
+                    <li><a href="#">Blazers & Shirts</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Shop All</a></li>
+                </ul>
+                <div class="bottom-links">
+                    <a href="#">About</a>
+                    <a href="#">Journal</a>
+                    <a href="#">The Store</a>
+                </div>
+                </div>
+
+
+           </div>
+           
+           <script>
+  function openMenu() {
+    document.getElementById("sideMenu").style.width = "250px"; // Or whatever width you want
+  }
+
+  function closeMenu() {
+    document.getElementById("sideMenu").style.width = "0";
+  }
+</script>
+
+
+
+          
         </div>
         <div class="logo">
             <h3>Private White V.C.</h3>
@@ -21,13 +62,22 @@
        
         <div class="icons">
                <i class="fa fa-search"></i>
+
+
                <% if (user) { %>
                <a href="/profile"><i class="fa fa-user"></i></a>
                <% } else { %>
                 <a href="/login"><i class="fa fa-user"></i></a>
                <% } %>
-               <i class="fa fa-shopping-cart"></i>
-</div>
+
+
+
+                <a href="/my-orders"><i class="fa fa-shopping-cart"></i> </a>
+
+
+                <a href="/logout">Logout</a>
+</div> 
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const userIcon = document.getElementById('user-icon');

@@ -17,7 +17,11 @@ server.use(cookieParser());
 server.use(session({
   secret: 'yourSecretKey',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    secure: false // set to true in production with HTTPS
+  }
 }));
 
 // After session middleware:
@@ -37,17 +41,16 @@ server.use(expresslayouts);
 const User = require("./models/user");
 const userRoutes = require("./routes/user");
 const staticRoutes = require("./routes/staticrouter");
-const{restrictedToLoggedinUserOnly}=require("./middlewares/checkSessionAuth")
-
-
-
+const Product = require('./models/product');
 
 mongoose.connect('mongodb://localhost:27017/webproducts').then(() => 
   console.log('✅ MongoDB connected successfully'));
 
 
 
-
+const ordersRouter = require('./routes/orders');
+// ...
+server.use('/', ordersRouter);
 
 server.use("/user",userRoutes);
 // server.use("/",staticRoutes);
@@ -66,17 +69,28 @@ server.get('/landingpage-test', (req, res) => {
 
 
 
-server.post('/login', async (req, res) => {
-  const { email, password } = req.body;
-  const user = await User.findOne({ email });
+// server.post('/login', async (req, res) => {
+//   const { email, password } = req.body;
+//   const user = await User.findOne({ email });
 
-  if (user && await bcrypt.compare(password, user.password)) {
-    req.session.userId = user._id;
-    res.redirect('/my-orders');
-  } else {
-    res.send('Invalid credentials');
-  }
-});
+//   if (user && await bcrypt.compare(password, user.password)) {
+//     req.session.userId = user._id;
+//     res.redirect('/my-orders');
+//   } else {
+//     res.send('Invalid credentials');
+//   }
+//   // ✅ Store user ID in session
+//   req.session.userId = user._id;
+
+//   res.status(200).json({ message: 'Login successful' });
+
+// });
+
+
+
+
+
+
 
 server.get('/logout', (req, res) => {
   req.session.destroy(() => {

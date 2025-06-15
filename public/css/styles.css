@@ -59,25 +59,7 @@ header {
 }
 
 
-/* .hero {
-    position: relative;
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    padding-top: 100px; 
-} */
 
-.video-container {
-    position: fixed;
-    height: 100vh;
-    object-fit:cover;
-    z-index: -1;
-   
-
-}
 
 
 .hero-content h3 {
@@ -746,4 +728,120 @@ footer {
 }
 .icons a:hover {
   color: #ff6600 ;
+}
+
+
+.fa-bars {
+  display: inline-block; 
+  font-size: 24px;        
+  cursor: pointer;      
+}
+
+
+
+.side-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white; 
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px; 
+}
+
+.side-menu button {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 36px;
+  background: none;
+  border: none;
+}
+
+.hero {
+    width: 100%;
+    height: 100vh; /* or adjust as needed */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ensures image covers entire area */
+    display: block;
+}
+
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 340px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+  padding: 30px 20px;
+  overflow-y: auto;
+  z-index: 1000;
+  font-family: 'Georgia', serif;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 60px 0 20px 0;
+  margin: 0;
+}
+
+.menu-list li {
+  margin-bottom: 18px;
+}
+
+.menu-list a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #111;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.menu-list a:hover {
+  color: #8d703b; /* gold-like hover */
+}
+
+.bottom-links {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+.bottom-links a {
+  text-decoration: none;
+  color: #111;
 }
