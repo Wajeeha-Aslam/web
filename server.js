@@ -41,7 +41,6 @@ server.use(expresslayouts);
 const User = require("./models/user");
 const userRoutes = require("./routes/user");
 const staticRoutes = require("./routes/staticrouter");
-const Product = require('./models/product');
 
 
 
@@ -49,6 +48,10 @@ const Product = require('./models/product');
 
 mongoose.connect('mongodb://localhost:27017/webproducts').then(() => 
   console.log('✅ MongoDB connected successfully'));
+
+const uploadRoutes = require('./admin/middlewares/upload');
+server.use('/admin', uploadRoutes);
+
 
 
 const adminRoutes = require("./admin/routes/adminRoutes");
@@ -63,6 +66,10 @@ server.use("/user",userRoutes);
 // server.use("/",staticRoutes);
 server.use("/",staticRoutes);
 
+// server.use('/upload', express.static(path.join(__dirname, 'upload')));
+// server.use('/upload', express.static('public/upload'));
+const path = require('path');
+server.use('/upload', express.static(path.join(__dirname, 'upload')));
 
 
 

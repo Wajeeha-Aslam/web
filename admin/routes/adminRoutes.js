@@ -1,14 +1,24 @@
 const express = require('express');
 const router = express.Router();
+// const adminController = require('../controllers/adminController');
+const multer = require('multer');
+const path = require('path');
 const adminController = require('../controllers/adminController');
-const adminAuth = require('../middlewares/adminAuth');
-
 
 const Order = require('../../models/order');
 
+// Set up multer for image upload
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './upload');
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+const upload = multer({ storage });
 
-
-
+router.post("/products/add", upload.single("image"), adminController.postAddProduct);
 
 
 router.post('/adminlogin', (req, res) => {

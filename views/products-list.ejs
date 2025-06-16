@@ -107,27 +107,36 @@ header nav a:hover {
       </tr>
     </thead>
     <tbody>
-      <% products.forEach(product => { %>
-        <tr>
-          <td><%= product.title %></td>
-          <td>$<%= product.price.toFixed(2) %></td>
-          <td><%= product.description %></td>
-          <td>
-            <% if (product.imageUrl) { %>
-              <img src="<%= product.imageUrl %>" alt="Product Image" style="max-width: 100px;">
-            <% } else { %>
-              No Image
-            <% } %>
-          </td>
-          <td>
-            <a href="/admin/products/edit/<%= product._id %>">Edit</a>
-            <form action="/admin/products/delete/<%= product._id %>" method="POST" style="display:inline;">
-              <button type="submit" onclick="return confirm('Are you sure?');">Delete</button>
-            </form>
-          </td>
-        </tr>
-      <% }); %>
-    </tbody>
+  <% products.forEach(product => { %>
+    <tr>
+      <td><%= product.name %></td>
+      <td>$<%= product.price.toFixed(2) %></td>
+      <td><%= product.description %></td>
+      <td>
+        <% if (product.image) { %>
+         <img src="<%= product.image %>" alt="Product Image" style="max-width: 100px;">
+
+        <% } else { %>
+          No Image
+        <% } %>
+              <!-- <label for="image" style="display: block; margin-bottom: 8px; font-weight: bold;">Product Image:</label>
+    <input type="file" name="image" id="image" accept="image/*" style="
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;"> -->
+      </td>
+      <td>
+        <a href="/admin/products/edit/<%= product._id %>">Edit</a>
+        <form action="/admin/products/delete/<%= product._id %>" method="POST" style="display:inline;">
+          <button type="submit" onclick="return confirm('Are you sure?');">Delete</button>
+        </form>
+      </td>
+    </tr>
+  <% }); %>
+</tbody>
+
   </table>
 </body>
 </html>
