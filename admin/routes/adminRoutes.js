@@ -49,7 +49,7 @@ router.get('/products',adminController.listProducts);
 router.get('/products/add',adminController.getAddProduct);
 router.post('/products/add',adminController.postAddProduct);
 router.get('/products/edit/:id',  adminController.getEditProduct);
-router.post('/products/edit/:id', adminController.postEditProduct);
+router.post('/products/edit/:id', upload.single('image'), adminController.postEditProduct);
 router.post('/products/delete/:id', adminController.postDeleteProduct);
 
 // router.get('/orders', (req, res) => {

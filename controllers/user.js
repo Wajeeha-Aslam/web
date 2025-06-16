@@ -19,6 +19,13 @@ async function handleUserLogin(req, res) {
     });
   }
 
+
+    req.session.user = {
+    _id: user._id,
+    name: user.name,
+    email: user.email,
+    roles: user.roles,
+  };
   req.session.userId = user._id; // ✅ Core fix
   return res.redirect("/landingpage");
 }

@@ -88,7 +88,8 @@ header nav a:hover {
   <nav>
     <a href="/admin/products">Products</a>
     <a href="/admin/products/add">Add Product</a>
-    <a href="/admin/orders">Orders</a> <!-- ✅ CORRECT! -->
+    <a href="/admin/orders">Orders</a> 
+    <!-- <a href="/my-orders">My Cart</a> -->
     <a href="/admin/logout">Logout</a>
   </nav>
 </header>
@@ -113,6 +114,8 @@ header nav a:hover {
       <td>$<%= product.price.toFixed(2) %></td>
       <td><%= product.description %></td>
       <td>
+
+
         <% if (product.image) { %>
          <img src="<%= product.image %>" alt="Product Image" style="max-width: 100px;">
 
@@ -127,7 +130,14 @@ header nav a:hover {
       border: 1px solid #ccc;
       border-radius: 5px;"> -->
       </td>
-      <td>
+
+     <td>
+      <!-- 
+         <form action="/cart/add" method="POST">
+          <input type="hidden" name="productId" value="<%= product._id %>">
+          <input type="hidden" name="price" value="<%= product.price %>">
+          <button type="submit">Add to Cart</button>
+        </form> -->
         <a href="/admin/products/edit/<%= product._id %>">Edit</a>
         <form action="/admin/products/delete/<%= product._id %>" method="POST" style="display:inline;">
           <button type="submit" onclick="return confirm('Are you sure?');">Delete</button>

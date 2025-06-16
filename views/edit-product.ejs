@@ -106,31 +106,38 @@
 
   <h1><%= product ? 'Edit Product' : 'Add Product' %></h1>
 
-  <form action="<%= product ? '/admin/products/edit/' + product._id : '/admin/products/add' %>" method="POST">
-    <label>Title</label>
-    <input type="text" name="title" value="<%= product ? product.title : '' %>" required>
+<form 
+  action="<%= product ? '/admin/products/edit/' + product._id : '/admin/products/add' %>" 
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <label>Title</label>
+  <input type="text" name="name" value="<%= product ? product.name : '' %>" required>
 
-    <label>Price</label>
-    <input type="number" name="price" step="0.01" value="<%= product ? product.price : '' %>" required>
+  <label>Price</label>
+  <input type="number" name="price" step="0.01" value="<%= product ? product.price : '' %>" required>
 
-    <label>Description</label>
-    <textarea name="description" required><%= product ? product.description : '' %></textarea>
-<!-- 
-    <label>Image URL</label>
-    <input type="text" name="imageUrl" value="<%= product ? product.imageUrl : '' %>"> -->
+  <label>Description</label>
+  <textarea name="description" required><%= product ? product.description : '' %></textarea>
 
-      <label for="image" style="display: block; margin-bottom: 8px; font-weight: bold;">Product Image:</label>
-    <input type="file" name="image" id="image" accept="image/*" style="
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;">
+  <label>Color</label>
+  <input type="text" name="color" value="<%= product ? product.color : '' %>">
 
+  <label>Department</label>
+  <input type="text" name="department" value="<%= product ? product.department : '' %>">
 
+  <label for="image">Product Image:</label>
+  <input type="file" name="image" id="image" accept="image/*">
 
-    <input type="submit" value="<%= product ? 'Update Product' : 'Add Product' %>">
-  </form>
+  <!-- Optional: show current image -->
+  <% if (product && product.image) { %>
+    <p>Current image:</p>
+    <img src="<%= product.image %>" alt="Current image" style="max-width: 100px;">
+  <% } %>
+
+  <input type="submit" value="<%= product ? 'Update Product' : 'Add Product' %>">
+</form>
+
 
   <a href="/admin/products">← Back to Products</a>
 

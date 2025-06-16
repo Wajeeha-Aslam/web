@@ -10,7 +10,9 @@ let server = express();
 server.use(express.static("public"));
 
 
-const  cookieParser = require("cookie-parser")
+const  cookieParser = require("cookie-parser");
+
+
 server.use(express.urlencoded({ extended: true }));
 server.use(cookieParser());
 // Session setup
@@ -19,6 +21,7 @@ server.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
+     cookie: { maxAge: 60000 * 60 * 24 },
     httpOnly: true,
     secure: false // set to true in production with HTTPS
   }
@@ -49,8 +52,6 @@ const staticRoutes = require("./routes/staticrouter");
 mongoose.connect('mongodb://localhost:27017/webproducts').then(() => 
   console.log('✅ MongoDB connected successfully'));
 
-const uploadRoutes = require('./admin/middlewares/upload');
-server.use('/admin', uploadRoutes);
 
 
 
