@@ -1,0 +1,285 @@
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>New Arrivals</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: white;
+      color: black;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .product {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .product img {
+      width: 100%;
+      max-height: 350px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .product h2 {
+      font-size: 1.1rem;
+      margin: 10px 0;
+    }
+
+    .product p {
+      font-size: 0.95rem;
+      margin: 4px 0;
+    }
+
+    .product form {
+      margin-top: 10px;
+    }
+
+    .product input[type="number"] {
+      width: 60px;
+      padding: 5px;
+      margin-right: 10px;
+    }
+
+    .product button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 3px;
+      font-size: 0.9rem;
+    }
+
+    .product button:hover {
+      background-color: #218838;
+    }
+
+    .empty-msg {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 1.1rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+
+
+    <section class="hero">
+    <img src="/assets/New_Arrivals.png" alt="The main image">
+  
+    </section>
+
+  
+
+<!-- 
+   <section class="blog-section">
+  <div class="blog-card">
+    <img src="/assets/THEDRIFTER.png" alt="Court Jacket">
+    <h2>The Deck Coat - Midnight</h2>
+    <p>Rs 329,800</p>
+    <form action="/add-to-cart" method="POST">
+      <input type="hidden" name="productId" value="685048bf3d50afb18dcb0ce2">
+      <input type="number" name="qty" value="1" min="1" required>
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <div class="blog-card">
+    <img src="/assets/blaser.png" alt="L.S. Lowry">
+    <h2>The Civvy Trench - Olive</h2>
+    <p>Rs 366,600</p>
+    <form action="/add-to-cart" method="POST">
+      <input type="hidden" name="productId" value="685048bf3d50afb18dcb0ce3">
+      <input type="number" name="qty" value="1" min="1" required>
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <div class="blog-card">
+    <img src="/assets/THETRACKERJACKETNAVY.png" alt="Wax Walker">
+    <h2>The Overload Jacket - Navy</h2>
+    <p>Rs 182,400</p>
+    <form action="/add-to-cart" method="POST">
+      <input type="hidden" name="productId" value="685048bf3d50afb18dcb0ce4">
+      <input type="number" name="qty" value="1" min="1" required>
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <div class="blog-card">
+    <img src="/assets/THE_HONEY.png" alt="Wax Walker">
+    <h2>The Martini Polo - White</h2>
+    <p>Rs 101,400</p>
+    <form action="/add-to-cart" method="POST">
+      <input type="hidden" name="productId" value="685048bf3d50afb18dcb0ce5">
+      <input type="number" name="qty" value="1" min="1" required>
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <div class="blog-card">
+    <img src="/assets/THETAILORBLAZERSAND.png" alt="Wax Walker">
+    <h2>The Parade Mac - Sand</h2>
+    <p>Rs 460,400</p>
+    <form action="/add-to-cart" method="POST">
+      <input type="hidden" name="productId" value="685048bf3d50afb18dcb0ce6">
+      <input type="number" name="qty" value="1" min="1" required>
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <div class="blog-card">
+    <img src="/assets/THETRACKERJACKETNAVY.png" alt="Wax Walker">
+    <h2>The Spy Bomber - Ink</h2>
+    <p>Rs 329,400</p>
+    <form action="/add-to-cart" method="POST">
+      <input type="hidden" name="productId" value="685048bf3d50afb18dcb0ce7">
+      <input type="number" name="qty" value="1" min="1" required>
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+</section> -->
+
+
+
+<section class="blog-section">
+  <div class="blog-card">
+    <img src="/assets/THEDRIFTER.png" alt="Deck Coat">
+    <h2>The Deck Coat - Midnight</h2>
+    <p>Rs 329,800</p>
+    <form action="/add-to-order" method="POST">
+      <input type="hidden" name="productId" value="68504be43d50afb18dcb0cee">
+      <input type="number" name="qty" value="1" min="1">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <div class="blog-card">
+    <img src="/assets/blaser.png" alt="Civvy Trench">
+    <h2>The Civvy Trench - Olive</h2>
+    <p>Rs 366,600</p>
+    <form action="/add-to-order" method="POST">
+      <input type="hidden" name="productId" value="68504be43d50afb18dcb0cef">
+      <input type="number" name="qty" value="1" min="1">
+      <button  src="/add-to-order" type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <div class="blog-card">
+    <img src="/assets/THETRACKERJACKETNAVY.png" alt="Overload Jacket">
+    <h2>The Overload Jacket - Navy</h2>
+    <p>Rs 182,400</p>
+    <form action="/add-to-order" method="POST">
+      <input type="hidden" name="productId" value="68504be43d50afb18dcb0cf0">
+      <input type="number" name="qty" value="1" min="1">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <div class="blog-card">
+    <img src="/assets/THE_HONEY.png" alt="Martini Polo">
+    <h2>The Martini Polo - White</h2>
+    <p>Rs 101,400</p>
+    <form action="/add-to-order" method="POST">
+      <input type="hidden" name="productId" value="68504be43d50afb18dcb0cf1">
+      <input type="number" name="qty" value="1" min="1">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <div class="blog-card">
+    <img src="/assets/THETAILORBLAZERSAND.png" alt="Parade Mac">
+    <h2>The Parade Mac - Sand</h2>
+    <p>Rs 460,400</p>
+    <form action="/add-to-order" method="POST">
+      <input type="hidden" name="productId" value="68504be43d50afb18dcb0cf2">
+      <input type="number" name="qty" value="1" min="1">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <div class="blog-card">
+    <img src="/assets/THETRACKERJACKETNAVY.png" alt="Spy Bomber">
+    <h2>The Spy Bomber - Ink</h2>
+    <p>Rs 329,400</p>
+    <form action="/add-to-order" method="POST">
+      <input type="hidden" name="productId" value="68504be43d50afb18dcb0cf3">
+      <input type="number" name="qty" value="1" min="1">
+      
+      <button type="submit">Add to Cart</button>
+    </form>
+
+  <% products.forEach(function(product) { %>
+  <div>
+    <h2><%= product.name %></h2>
+    <p>Price: $<%= product.price %></p>
+
+    <form action="/add-to-order" method="GET">
+      <input type="hidden" name="productId" value="<%= product._id %>">
+      <input type="number" name="qty" value="1" min="1">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+<% }); %>
+
+</section>
+
+
+
+
+  <!-- <% if (products.length === 0) { %>
+    <p class="empty-msg">No new arrival products at the moment.</p>
+  <% } %>
+
+  <div class="grid">
+   <% products.forEach(product => { %>
+  <div class="product">
+    <h3><%= product.name %></h3>
+   
+    <img src="<%= product.image %>" alt="Product Image">
+
+    <p>Rs <%= product.price %></p>
+
+    <form action="/add-to-cart" method="POST">
+      <input type="hidden" name="productId" value="<%= product._id %>">
+      <button type="submit">Add to Cart</button>
+    </form> -->
+
+
+  </div>
+<!-- <% }) %>  -->
+
+  </div>
+
+</body>
+</html> 

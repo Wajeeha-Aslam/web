@@ -23,7 +23,7 @@ server.use(session({
   cookie: {
      cookie: { maxAge: 60000 * 60 * 24 },
     httpOnly: true,
-    secure: false // set to true in production with HTTPS
+    secure: false 
   }
 }));
 
@@ -45,7 +45,8 @@ const User = require("./models/user");
 const userRoutes = require("./routes/user");
 const staticRoutes = require("./routes/staticrouter");
 
-
+server.use("/user",userRoutes);
+server.use("/",staticRoutes);
 
 
 
@@ -55,22 +56,42 @@ mongoose.connect('mongodb://localhost:27017/webproducts').then(() =>
 
 
 
+
+
 const adminRoutes = require("./admin/routes/adminRoutes");
 server.use('/admin', adminRoutes);
 
-
 const ordersRouter = require('./routes/orders');
-// ...
 server.use('/', ordersRouter);
 
-server.use("/user",userRoutes);
-// server.use("/",staticRoutes);
-server.use("/",staticRoutes);
+const productsRoutes = require('./routes/products'); 
+server.use("/",productsRoutes);
 
-// server.use('/upload', express.static(path.join(__dirname, 'upload')));
-// server.use('/upload', express.static('public/upload'));
+const cartRoutes = require('./routes/cart');
+server.use('/', cartRoutes);
+
+
+server.use((req, res, next) => {
+  console.log('📥 Incoming request:', req.method, req.url);
+  next();
+});
+
+
+
+// console.log('adminRoutes:', adminRoutes);
+// console.log('ordersRouter:', ordersRouter);
+// console.log('productsRoutes:', productsRoutes);
+// console.log('cartRoutes:', cartRoutes);
+
+
 const path = require('path');
 server.use('/upload', express.static(path.join(__dirname, 'upload')));
+
+
+
+
+
+
 
 
 
@@ -84,23 +105,6 @@ server.get('/landingpage-test', (req, res) => {
 
 
 
-// server.post('/login', async (req, res) => {
-//   const { email, password } = req.body;
-//   const user = await User.findOne({ email });
-
-//   if (user && await bcrypt.compare(password, user.password)) {
-//     req.session.userId = user._id;
-//     res.redirect('/my-orders');
-//   } else {
-//     res.send('Invalid credentials');
-//   }
-//   // ✅ Store user ID in session
-//   req.session.userId = user._id;
-
-//   res.status(200).json({ message: 'Login successful' });
-
-// });
-
 
 
 
@@ -113,16 +117,8 @@ server.get('/logout', (req, res) => {
   });
 });
 
-server.get('/login', (req, res) => {
-  res.render('login',{layout:false}); 
-});
 
 
-
-
-server.get("/landingpage", (req,res)=>{
-    res.render("landingpage");
-});
 
 server.get('/cv',(req,res)=>{
     res.render('cv',{layout:false});
@@ -135,6 +131,13 @@ server.get('/checkout',(req,res)=>{
 server.get('/checkoutpw',(req,res)=>{
     res.render('checkoutpw',{layout:false});
 });
+
+
+
+
+
+
+
 server.listen(4000,()=>{
     console.log("server started at localhost:4000");
 
