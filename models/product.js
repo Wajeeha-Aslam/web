@@ -7,5 +7,5 @@ const productSchema = new mongoose.Schema({
   description: String,
   image: String,
   createdAt: { type: Date, default: Date.now }
-}, { timestamps: true , collection: 'webproducts' });
+}, { timestamps: true , collection: 'products' });
 module.exports = mongoose.models.Product || mongoose.model('Product', productSchema);

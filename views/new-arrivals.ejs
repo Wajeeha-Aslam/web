@@ -1,30 +1,24 @@
-
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>New Arrivals</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
     }
-
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       background: white;
       color: black;
       padding: 40px 20px;
     }
-
     h1 {
       text-align: center;
       margin-bottom: 40px;
     }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -32,43 +26,37 @@
       max-width: 1300px;
       margin: 0 auto;
     }
-
-    .product {
+    .blog-card>
+ {
       border: 1px solid #ddd;
       border-radius: 8px;
       padding: 20px;
       text-align: center;
       background-color: #fff;
     }
-
-    .product img {
+    .blog-card img {
       width: 100%;
       max-height: 350px;
       object-fit: contain;
       margin-bottom: 15px;
     }
-
-    .product h2 {
+    .blog-card h2 {
       font-size: 1.1rem;
       margin: 10px 0;
     }
-
-    .product p {
+    .blog-card p {
       font-size: 0.95rem;
-      margin: 4px 0;
+      margin: 4px 0 15px 0;
     }
-
-    .product form {
+    .blog-card form {
       margin-top: 10px;
     }
-
-    .product input[type="number"] {
+    .blog-card input[type="number"] {
       width: 60px;
       padding: 5px;
       margin-right: 10px;
     }
-
-    .product button {
+    .blog-card button {
       background-color: #28a745;
       color: white;
       border: none;
@@ -76,12 +64,11 @@
       cursor: pointer;
       border-radius: 3px;
       font-size: 0.9rem;
+      transition: background-color 0.3s ease;
     }
-
-    .product button:hover {
+    .blog-card button:hover {
       background-color: #218838;
     }
-
     .empty-msg {
       text-align: center;
       margin-top: 50px;
@@ -92,194 +79,89 @@
 </head>
 <body>
 
+  <section class="hero">
+    <img src="/assets/New_Arrivals.png" alt="The main image" />
+  </section>
+
+  <section class="blog-section">
 
 
-    <section class="hero">
-    <img src="/assets/New_Arrivals.png" alt="The main image">
-  
-    </section>
+    <div class="blog-card">
 
-  
+      <img src="/assets/THEDRIFTER.png" alt="The Deck Coat - Midnight" />
+      <h2>The Deck Coat - Midnight</h2>
+      <p>Rs 329,800</p>
+      <form action='/add-to-order' method="POST">
+        <input type="hidden" name="productId" value="6850c0f15782bf7f8acb0cea" />
+        <input type="number" name="qty" value="1" min="1" />
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
 
-<!-- 
-   <section class="blog-section">
-  <div class="blog-card">
-    <img src="/assets/THEDRIFTER.png" alt="Court Jacket">
-    <h2>The Deck Coat - Midnight</h2>
-    <p>Rs 329,800</p>
-    <form action="/add-to-cart" method="POST">
-      <input type="hidden" name="productId" value="685048bf3d50afb18dcb0ce2">
-      <input type="number" name="qty" value="1" min="1" required>
-      <button type="submit">Add to Cart</button>
-    </form>
-  </div>
+    <div class="blog-card">
 
-  <div class="blog-card">
-    <img src="/assets/blaser.png" alt="L.S. Lowry">
-    <h2>The Civvy Trench - Olive</h2>
-    <p>Rs 366,600</p>
-    <form action="/add-to-cart" method="POST">
-      <input type="hidden" name="productId" value="685048bf3d50afb18dcb0ce3">
-      <input type="number" name="qty" value="1" min="1" required>
-      <button type="submit">Add to Cart</button>
-    </form>
-  </div>
+      <img src="/assets/blaser.png" alt="The Civvy Trench - Olive" />
+      <h2>The Civvy Trench - Olive</h2>
+      <p>Rs 366,600</p>
+      <form action='/add-to-order' method="POST">
+        <input type="hidden" name="productId" value="6850c0f15782bf7f8acb0ceb" />
+        <input type="number" name="qty" value="1" min="1" />
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
 
-  <div class="blog-card">
-    <img src="/assets/THETRACKERJACKETNAVY.png" alt="Wax Walker">
-    <h2>The Overload Jacket - Navy</h2>
-    <p>Rs 182,400</p>
-    <form action="/add-to-cart" method="POST">
-      <input type="hidden" name="productId" value="685048bf3d50afb18dcb0ce4">
-      <input type="number" name="qty" value="1" min="1" required>
-      <button type="submit">Add to Cart</button>
-    </form>
-  </div>
+    <div class="blog-card">
 
-  <div class="blog-card">
-    <img src="/assets/THE_HONEY.png" alt="Wax Walker">
-    <h2>The Martini Polo - White</h2>
-    <p>Rs 101,400</p>
-    <form action="/add-to-cart" method="POST">
-      <input type="hidden" name="productId" value="685048bf3d50afb18dcb0ce5">
-      <input type="number" name="qty" value="1" min="1" required>
-      <button type="submit">Add to Cart</button>
-    </form>
-  </div>
+      <img src="/assets/THETRACKERJACKETNAVY.png" alt="The Overload Jacket - Navy" />
+      <h2>The Overload Jacket - Navy</h2>
+      <p>Rs 182,400</p>
+      <form action='/add-to-order' method="POST">
+        <input type="hidden" name="productId" value="6850c0f15782bf7f8acb0cec" />
+        <input type="number" name="qty" value="1" min="1" />
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
 
-  <div class="blog-card">
-    <img src="/assets/THETAILORBLAZERSAND.png" alt="Wax Walker">
-    <h2>The Parade Mac - Sand</h2>
-    <p>Rs 460,400</p>
-    <form action="/add-to-cart" method="POST">
-      <input type="hidden" name="productId" value="685048bf3d50afb18dcb0ce6">
-      <input type="number" name="qty" value="1" min="1" required>
-      <button type="submit">Add to Cart</button>
-    </form>
-  </div>
+    <div class="blog-card">
 
-  <div class="blog-card">
-    <img src="/assets/THETRACKERJACKETNAVY.png" alt="Wax Walker">
-    <h2>The Spy Bomber - Ink</h2>
-    <p>Rs 329,400</p>
-    <form action="/add-to-cart" method="POST">
-      <input type="hidden" name="productId" value="685048bf3d50afb18dcb0ce7">
-      <input type="number" name="qty" value="1" min="1" required>
-      <button type="submit">Add to Cart</button>
-    </form>
-  </div>
-</section> -->
+      <img src="/assets/THE_HONEY.png" alt="The Martini Polo - White" />
+      <h2>The Martini Polo - White</h2>
+      <p>Rs 101,400</p>
+      <form action='/add-to-order'method="POST">
+        <input type="hidden" name="productId" value="6850c0f15782bf7f8acb0ced" />
+        <input type="number" name="qty" value="1" min="1" />
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
 
+    <div class="blog-card">
 
+      <img src="/assets/THETAILORBLAZERSAND.png" alt="The Parade Mac - Sand" />
+      <h2>The Parade Mac - Sand</h2>
+      <p>Rs 460,400</p>
+      <form action='/add-to-order' method="POST">
+        <input type="hidden" name="productId" value="6850c0f15782bf7f8acb0cee" />
+        <input type="number" name="qty" value="1" min="1" />
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
 
-<section class="blog-section">
-  <div class="blog-card">
-    <img src="/assets/THEDRIFTER.png" alt="Deck Coat">
-    <h2>The Deck Coat - Midnight</h2>
-    <p>Rs 329,800</p>
-    <form action="/add-to-order" method="POST">
-      <input type="hidden" name="productId" value="68504be43d50afb18dcb0cee">
-      <input type="number" name="qty" value="1" min="1">
-      <button type="submit">Add to Cart</button>
-    </form>
-  </div>
+    <div class="blog-card">
 
-  <div class="blog-card">
-    <img src="/assets/blaser.png" alt="Civvy Trench">
-    <h2>The Civvy Trench - Olive</h2>
-    <p>Rs 366,600</p>
-    <form action="/add-to-order" method="POST">
-      <input type="hidden" name="productId" value="68504be43d50afb18dcb0cef">
-      <input type="number" name="qty" value="1" min="1">
-      <button  src="/add-to-order" type="submit">Add to Cart</button>
-    </form>
-  </div>
+      <img src="/assets/THETRACKERJACKETNAVY.png" alt="The Spy Bomber - Ink" />
+      <h2>The Spy Bomber - Ink</h2>
+      <p>Rs 329,400</p>
+      <form action='/add-to-order' method="POST">
+        <input type="hidden" name="productId" value="6850c0f15782bf7f8acb0cef" />
+        <input type="number" name="qty" value="1" min="1" />
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
 
-  <div class="blog-card">
-    <img src="/assets/THETRACKERJACKETNAVY.png" alt="Overload Jacket">
-    <h2>The Overload Jacket - Navy</h2>
-    <p>Rs 182,400</p>
-    <form action="/add-to-order" method="POST">
-      <input type="hidden" name="productId" value="68504be43d50afb18dcb0cf0">
-      <input type="number" name="qty" value="1" min="1">
-      <button type="submit">Add to Cart</button>
-    </form>
-  </div>
+  </section>
 
-  <div class="blog-card">
-    <img src="/assets/THE_HONEY.png" alt="Martini Polo">
-    <h2>The Martini Polo - White</h2>
-    <p>Rs 101,400</p>
-    <form action="/add-to-order" method="POST">
-      <input type="hidden" name="productId" value="68504be43d50afb18dcb0cf1">
-      <input type="number" name="qty" value="1" min="1">
-      <button type="submit">Add to Cart</button>
-    </form>
-  </div>
-
-  <div class="blog-card">
-    <img src="/assets/THETAILORBLAZERSAND.png" alt="Parade Mac">
-    <h2>The Parade Mac - Sand</h2>
-    <p>Rs 460,400</p>
-    <form action="/add-to-order" method="POST">
-      <input type="hidden" name="productId" value="68504be43d50afb18dcb0cf2">
-      <input type="number" name="qty" value="1" min="1">
-      <button type="submit">Add to Cart</button>
-    </form>
-  </div>
-
-  <div class="blog-card">
-    <img src="/assets/THETRACKERJACKETNAVY.png" alt="Spy Bomber">
-    <h2>The Spy Bomber - Ink</h2>
-    <p>Rs 329,400</p>
-    <form action="/add-to-order" method="POST">
-      <input type="hidden" name="productId" value="68504be43d50afb18dcb0cf3">
-      <input type="number" name="qty" value="1" min="1">
-      
-      <button type="submit">Add to Cart</button>
-    </form>
-
-  <% products.forEach(function(product) { %>
-  <div>
-    <h2><%= product.name %></h2>
-    <p>Price: $<%= product.price %></p>
-
-    <form action="/add-to-order" method="GET">
-      <input type="hidden" name="productId" value="<%= product._id %>">
-      <input type="number" name="qty" value="1" min="1">
-      <button type="submit">Add to Cart</button>
-    </form>
-  </div>
-<% }); %>
-
-</section>
-
-
-
-
-  <!-- <% if (products.length === 0) { %>
-    <p class="empty-msg">No new arrival products at the moment.</p>
-  <% } %>
-
-  <div class="grid">
-   <% products.forEach(product => { %>
-  <div class="product">
-    <h3><%= product.name %></h3>
-   
-    <img src="<%= product.image %>" alt="Product Image">
-
-    <p>Rs <%= product.price %></p>
-
-    <form action="/add-to-cart" method="POST">
-      <input type="hidden" name="productId" value="<%= product._id %>">
-      <button type="submit">Add to Cart</button>
-    </form> -->
-
-
-  </div>
-<!-- <% }) %>  -->
-
-  </div>
+  <!-- If no products, show this message -->
+  <!-- <p class="empty-msg">No new arrival products at the moment.</p> -->
 
 </body>
-</html> 
+</html>

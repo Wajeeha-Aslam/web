@@ -14,6 +14,9 @@ const  cookieParser = require("cookie-parser");
 
 
 server.use(express.urlencoded({ extended: true }));
+
+
+server.use(express.json());
 server.use(cookieParser());
 // Session setup
 server.use(session({
@@ -56,8 +59,6 @@ mongoose.connect('mongodb://localhost:27017/webproducts').then(() =>
 
 
 
-
-
 const adminRoutes = require("./admin/routes/adminRoutes");
 server.use('/admin', adminRoutes);
 
@@ -69,6 +70,8 @@ server.use("/",productsRoutes);
 
 const cartRoutes = require('./routes/cart');
 server.use('/', cartRoutes);
+
+server.use('/productImages', express.static('public/productImages'));
 
 
 server.use((req, res, next) => {

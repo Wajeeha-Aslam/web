@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,102 +6,161 @@
 </head>
 <body>
 
-  <style>/* Reset & base styles */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f9f9f9;
-  color:  #9b5d3d;
-}
+<style>*, *::before, *::after {
+      box-sizing: border-box;
+    }
 
-header {
-  background:  #9b5d3d;
-  color: #fff;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f9;
+      color: #5a3e1b;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-size: 16px;
+    }
 
-header h1 {
-  margin: 0;
-  font-size: 1.5rem;
-}
+    header {
+      background-color: #a77044;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      font-weight: 600;
+    }
 
-header nav a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 1rem;
-  font-weight: bold;
-}
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 2rem;
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
 
-header nav a:hover {
-  text-decoration: underline;
-}
+    header nav a:hover {
+      background-color: #854c22;
+    }
 
-main {
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 0 2rem;
-}
+    main {
+      flex-grow: 1;
+      max-width: 1100px;
+      margin: 2.5rem auto 3rem;
+      padding: 0 1.5rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+    }
 
-main h2 {
-  margin-bottom: 1rem;
-}
+    main h2 {
+      margin-bottom: 1.5rem;
+      color: #7c4a1e;
+      font-weight: 700;
+      font-size: 1.8rem;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
+    main h2:hover {
+      color: #a77044;
+    }
 
-thead {
-  background:  #9b5d3d;
-  color: #fff;
-}
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 12px;
+      /* subtle rounded rows */
+    }
 
-th, td {
-  padding: 1rem;
-  border: 1px solid #ddd;
-  text-align: left;
-  vertical-align: top;
-}
+    thead tr {
+      background-color: #a77044;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 10px;
+    }
 
-tbody tr:nth-child(even) {
-  background: #f1f1f1;
-}
+    th, td {
+      padding: 1rem 1.2rem;
+      text-align: left;
+      vertical-align: middle;
+      font-weight: 500;
+    }
 
-ul {
-  margin: 0;
-  padding-left: 1.2rem;
-}
+    tbody tr {
+      background-color: #fdf6e3;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px rgb(167 112 68 / 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-button {
-  padding: 0.5rem 1rem;
-  background: #9b5d3d;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
+    tbody tr:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgb(167 112 68 / 0.45);
+    }
 
-button:hover {
-  background: #9b5d3d;
-}
-</style>
+    tbody td:first-child ul {
+      padding-left: 1rem;
+      margin: 0;
+      list-style-type: disc;
+      color: #6e4b22;
+    }
+
+    tbody td:first-child ul li {
+      margin-bottom: 0.3rem;
+    }
+
+    tbody td:nth-child(2), /* items column */
+    tbody td:nth-child(3) { /* total column */
+      white-space: nowrap;
+    }
+
+    tbody td:nth-child(3) {
+      font-weight: 700;
+      color: #7c4a1e;
+    }
+
+    tbody td:nth-child(4) {
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #a77044;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header nav a {
+        margin-left: 1rem;
+        font-size: 14px;
+      }
+      main {
+        margin: 1.5rem 1rem 2rem;
+        padding: 1rem;
+      }
+      th, td {
+        padding: 0.7rem 0.8rem;
+        font-size: 14px;
+      }
+    }</style>
  
   <header>
   <nav>
     <a href="/admin/products">Products</a>
     <a href="/admin/products/add">Add Product</a>
-    <a href="/admin/orders">Orders</a> <!-- ✅ CORRECT! -->
+    <a href="/admin/orders">Orders</a> 
     <a href="/admin/logout">Logout</a>
   </nav>
 </header>
 
   <main>
 
-     <!-- <pre><%= JSON.stringify(orders, null, 2) %></pre> -->
+
       <a href="/admin/orders"><h2>All Orders</h2></a>
    
      
@@ -140,6 +199,237 @@ button:hover {
       </tbody>
     </table>
   </main>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orders List</title>
+  <style>
+    /* Reset & base styles */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f7;
+      color: #4a4a4a;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #9b5d3d;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 3px;
+      transition: background-color 0.3s ease;
+    }
+
+    header nav a:hover {
+      background-color: #7a442a;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 2.5rem auto;
+      padding: 0 2rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.07);
+    }
+
+    main h2 {
+      margin-bottom: 1.5rem;
+      color: #7a442a;
+      font-weight: 700;
+      font-size: 2rem;
+      border-bottom: 2px solid #9b5d3d;
+      padding-bottom: 0.3rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    thead {
+      background: #9b5d3d;
+      color: #fff;
+    }
+
+    th, td {
+      padding: 1rem 1.2rem;
+      border: 1px solid #ddd;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    ul.items-list {
+      list-style: disc inside;
+      margin: 0;
+      padding-left: 1rem;
+    }
+
+    ul.items-list li {
+      margin-bottom: 0.3rem;
+      color: #5a3e26;
+    }
+
+    /* Customer name cell */
+    td.customer-name {
+      font-weight: 600;
+      color: #7a442a;
+    }
+
+    /* Status badges */
+    td.status {
+      font-weight: 700;
+      padding: 0.6rem 0.8rem;
+      text-align: center;
+      border-radius: 4px;
+      color: white;
+      width: 100px;
+    }
+
+    td.status.Pending {
+      background-color: #f0ad4e; /* orange */
+    }
+
+    td.status.Shipped {
+      background-color: #5bc0de; /* blue */
+    }
+
+    td.status.Delivered {
+      background-color: #5cb85c; /* green */
+    }
+
+    td.status.Cancelled {
+      background-color: #d9534f; /* red */
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: 1rem;
+      }
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead tr {
+        display: none;
+      }
+      tbody tr {
+        margin-bottom: 1.5rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1rem;
+        background: #fff;
+      }
+      tbody tr td {
+        border: none;
+        padding: 0.5rem 0;
+        position: relative;
+        padding-left: 50%;
+      }
+      tbody tr td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        font-weight: 600;
+        color: #7a442a;
+      }
+      ul.items-list {
+        padding-left: 0;
+        list-style: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/admin/products">Products</a>
+    <a href="/admin/products/add">Add Product</a>
+    <a href="/admin/orders">Orders</a>
+    <a href="/admin/logout">Logout</a>
+  </nav>
+</header>
+
+<main>
+  <h2>All Orders</h2>
+
+  <% if (!orders || orders.length === 0) { %>
+    <p>No orders found.</p>
+  <% } else { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Items</th>
+          <th>Total ($)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach(order => { %>
+          <tr>
+            <td data-label="Customer" class="customer-name">
+              <%= order.user?.name || 'Unknown Customer' %>
+            </td>
+
+            <td data-label="Items">
+              <ul class="items-list">
+                <% if (Array.isArray(order.items)) { %>
+                  <% order.items.forEach(item => { %>
+                    <li>
+                      <%= item.name || (item.productId && item.productId.name) || 'Unknown Product' %> 
+                      (x<%= item.qty %>)
+                    </li>
+                  <% }); %>
+                <% } else { %>
+                  <li>No items</li>
+                <% } %>
+              </ul>
+            </td>
+
+            <td data-label="Total">
+              $<%= order.total ? order.total.toFixed(2) : '0.00' %>
+            </td>
+
+            <td data-label="Status" class="status <%= order.status %>">
+              <%= order.status %>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+
+</main>
 
 </body>
 </html>
