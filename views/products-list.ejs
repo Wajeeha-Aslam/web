@@ -10,10 +10,28 @@
  <style>body {
   font-family: Arial, sans-serif;
   padding: 20px;
+
 }
+   * {
+    
+      box-sizing: border-box;
+    }
+
+    body {
+      
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     
+      line-height: 1.6;
+      padding-top: 160px;
+    }
+
 
 h1 {
   margin-bottom: 20px;
+  text-align: center;
+  
+  color: #9b5d3d;
 }
 
 table {
@@ -59,39 +77,60 @@ button {
   background-color: #9b5d3d;
 }
 
-header {
-  background:  #9b5d3d;
-  color: #fff;
+.sub-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #9b5d3d;
   padding: 1rem 2rem;
+  z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-header h1 {
+.sub-header .left h2 {
   margin: 0;
-  font-size: 1.5rem;
+  color: #fff;
+
 }
 
-header nav a {
+.sub-header .right nav a {
   color: #fff;
   text-decoration: none;
-  margin-left: 1rem;
-  font-weight: bold;
+  font-weight: 600;
+  margin-left: 1.5rem;
 }
 
-header nav a:hover {
-  text-decoration: underline;
+
+
+
+.sub-header nav a:hover {
+  color: #ffe5c0;
 }
+
+body {
+  padding-top: 120px; /* Accounts for both header and sub-header */
+}
+
+
 </style>
-  <header>
-  <nav>
-    <a href="/admin/products">Products</a>
-    <a href="/admin/products/add">Add Product</a>
-    <a href="/admin/orders">Orders</a> 
-    <!-- <a href="/my-orders">My Cart</a> -->
-    <a href="/admin/logout">Logout</a>
-  </nav>
+ <header>
+  <div class="sub-header">
+  <div class="left">
+    <h2>Admin Dashboard</h2>
+  </div>
+  <div class="right">
+    <nav>
+      <a href="/admin/products">Products</a>
+      <a href="/admin/products/add">Add Product</a>
+      <a href="/admin/orders">Orders</a>
+      <a href="/admin/logout">Logout</a>
+    </nav>
+  </div>
+</div>
+
 </header>
   <h1>Admin Products</h1>
 

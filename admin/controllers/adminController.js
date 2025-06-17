@@ -89,7 +89,7 @@ exports.listOrders = async (req, res) => {
    .populate('user')  // <<== this is the missing part
     .sort({ createdAt: -1 }); // use createdAt since orderDate is not in your schema
 
-  res.render('orders-list', { orders });
+  res.render('orders-list', { orders ,layout:false});
 };
 
 exports.updateOrderStatus = async (req, res) => {
@@ -97,6 +97,9 @@ exports.updateOrderStatus = async (req, res) => {
   await Order.findByIdAndUpdate(req.params.id, { status });
   res.redirect('/admin/orders');
 };
+
+
+
 
 
 

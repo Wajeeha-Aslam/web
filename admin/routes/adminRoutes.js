@@ -52,9 +52,8 @@ router.get('/products/edit/:id',  adminController.getEditProduct);
 router.post('/products/edit/:id', upload.single('image'), adminController.postEditProduct);
 router.post('/products/delete/:id', adminController.postDeleteProduct);
 
-// router.get('/orders', (req, res) => {
-//   res.send('Admin orders route working!');
-// });
+// In routes/admin.js
+router.post('/orders/:id/status', adminController.updateOrderStatus);
 
 
 // Order routes

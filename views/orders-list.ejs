@@ -210,7 +210,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Orders List</title>
-  <style>
+  
+</head>
+<body>
+<style>
     /* Reset & base styles */
     * {
       box-sizing: border-box;
@@ -220,33 +223,49 @@
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f5f5f7;
-      color: #4a4a4a;
+      color: grey;
       line-height: 1.6;
+      padding-top: 160px;
     }
 
-    header {
-      background: #9b5d3d;
-      color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 1.5rem;
-    }
 
-    header nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 3px;
-      transition: background-color 0.3s ease;
-    }
 
-    header nav a:hover {
-      background-color: #7a442a;
-    }
+.sub-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #9b5d3d;
+  padding: 1rem 2rem;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sub-header .left h2 {
+  margin: 0;
+  color: white;
+}
+
+.sub-header .right nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 1.5rem;
+}
+
+
+
+
+.sub-header nav a:hover {
+  color: #ffe5c0;
+}
+
+body {
+  padding-top: 120px; /* Accounts for both header and sub-header */
+}
+
 
     main {
       max-width: 1100px;
@@ -304,7 +323,7 @@
       font-weight: 600;
       color: #7a442a;
     }
-
+    
     /* Status badges */
     td.status {
       font-weight: 700;
@@ -365,21 +384,54 @@
         padding-left: 0;
         list-style: none;
       }
-    }
-  </style>
-</head>
-<body>
+    }td form {
+  display: flex;
+  flex-direction: column;
+}
 
-<header>
-  <nav>
-    <a href="/admin/products">Products</a>
-    <a href="/admin/products/add">Add Product</a>
-    <a href="/admin/orders">Orders</a>
-    <a href="/admin/logout">Logout</a>
-  </nav>
-</header>
+td form select {
+  margin-bottom: 0.3rem;
+  padding: 0.3rem;
+}
+
+td form button {
+  background: #9b5d3d;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+td form button:hover {
+  background: #7a442a;
+}
+
+  </style>
+
 
 <main>
+ <!-- Header with Navigation -->
+<header>
+  <div class="sub-header">
+  <div class="left">
+    <h2>Admin Dashboard</h2>
+  </div>
+  <div class="right">
+    <nav>
+      <a href="/admin/products">Products</a>
+      <a href="/admin/products/add">Add Product</a>
+      <a href="/admin/orders">Orders</a>
+      <a href="/admin/logout">Logout</a>
+    </nav>
+  </div>
+</div>
+
+</header>
+
+</div>
   <h2>All Orders</h2>
 
   <% if (!orders || orders.length === 0) { %>
@@ -400,7 +452,7 @@
             <td data-label="Customer" class="customer-name">
               <%= order.user?.name || 'Unknown Customer' %>
             </td>
-
+           
             <td data-label="Items">
               <ul class="items-list">
                 <% if (Array.isArray(order.items)) { %>
@@ -420,9 +472,23 @@
               $<%= order.total ? order.total.toFixed(2) : '0.00' %>
             </td>
 
-            <td data-label="Status" class="status <%= order.status %>">
+            <!-- <td data-label="Status" class="status <%= order.status %>">
               <%= order.status %>
+            </td> -->
+                      <td data-label="Status">
+              <form action="/admin/orders/<%= order._id %>/status" method="POST" style="display:flex; align-items:center;">
+                <select name="status" style="padding:0.3rem; margin-right:0.5rem;">
+                  <% ['Pending', 'Shipped', 'Delivered', 'Cancelled'].forEach(option => { %>
+                    <option value="<%= option %>" <%= option === order.status ? 'selected' : '' %>><%= option %></option>
+                  <% }) %>
+                </select>
+                <button type="submit" style="padding: 0.3rem 0.6rem; background: #9b5d3d; color: #fff; border: none; border-radius: 4px; cursor: pointer;">
+                  Update
+                </button>
+              </form>
             </td>
+
+
           </tr>
         <% }) %>
       </tbody>
