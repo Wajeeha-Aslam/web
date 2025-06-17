@@ -1,207 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Orders List</title>
-</head>
-<body>
-
-<style>*, *::before, *::after {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f4f9;
-      color: #5a3e1b;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      font-size: 16px;
-    }
-
-    header {
-      background-color: #a77044;
-      color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-      font-weight: 600;
-    }
-
-    header nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 2rem;
-      padding: 0.4rem 0.6rem;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-    }
-
-    header nav a:hover {
-      background-color: #854c22;
-    }
-
-    main {
-      flex-grow: 1;
-      max-width: 1100px;
-      margin: 2.5rem auto 3rem;
-      padding: 0 1.5rem;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 8px 15px rgba(0,0,0,0.08);
-    }
-
-    main h2 {
-      margin-bottom: 1.5rem;
-      color: #7c4a1e;
-      font-weight: 700;
-      font-size: 1.8rem;
-      cursor: pointer;
-      user-select: none;
-      transition: color 0.3s ease;
-    }
-
-    main h2:hover {
-      color: #a77044;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0 12px;
-      /* subtle rounded rows */
-    }
-
-    thead tr {
-      background-color: #a77044;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1rem;
-      border-radius: 10px;
-    }
-
-    th, td {
-      padding: 1rem 1.2rem;
-      text-align: left;
-      vertical-align: middle;
-      font-weight: 500;
-    }
-
-    tbody tr {
-      background-color: #fdf6e3;
-      border-radius: 10px;
-      box-shadow: 0 3px 6px rgb(167 112 68 / 0.3);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    tbody tr:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgb(167 112 68 / 0.45);
-    }
-
-    tbody td:first-child ul {
-      padding-left: 1rem;
-      margin: 0;
-      list-style-type: disc;
-      color: #6e4b22;
-    }
-
-    tbody td:first-child ul li {
-      margin-bottom: 0.3rem;
-    }
-
-    tbody td:nth-child(2), /* items column */
-    tbody td:nth-child(3) { /* total column */
-      white-space: nowrap;
-    }
-
-    tbody td:nth-child(3) {
-      font-weight: 700;
-      color: #7c4a1e;
-    }
-
-    tbody td:nth-child(4) {
-      text-transform: uppercase;
-      font-weight: 600;
-      color: #a77044;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      header nav a {
-        margin-left: 1rem;
-        font-size: 14px;
-      }
-      main {
-        margin: 1.5rem 1rem 2rem;
-        padding: 1rem;
-      }
-      th, td {
-        padding: 0.7rem 0.8rem;
-        font-size: 14px;
-      }
-    }</style>
- 
-  <header>
-  <nav>
-    <a href="/admin/products">Products</a>
-    <a href="/admin/products/add">Add Product</a>
-    <a href="/admin/orders">Orders</a> 
-    <a href="/admin/logout">Logout</a>
-  </nav>
-</header>
-
-  <main>
-
-
-      <a href="/admin/orders"><h2>All Orders</h2></a>
-   
-     
-    <table>
-      <thead>
-        <tr>
-          <th>Customer</th>
-          <th>Items</th>
-          <th>Total ($)</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% orders.forEach(order => { %>
-  <tr>
-  <td>
-  <ul>
-    <% if (Array.isArray(order.items)) { %>
-      <% order.items.forEach(item => { %>
-        <li><%= item.productId || 'Unknown' %> (x<%= item.qty %>)</li>
-      <% }) %>
-    <% } else { %>
-      <li>No items</li>
-    <% } %>
-  </ul>
-</td>
-
-<td>$<%= order.total.toFixed(2) %></td>
-<td>$<%= order.total.toFixed(2) %></td>
-<td><%= order.status %></td>
-
-
-  </tr>
-<% }) %>
-
-      </tbody>
-    </table>
-  </main>
-
-</body>
-</html> -->
 
 
 <!DOCTYPE html>
@@ -214,7 +10,6 @@
 </head>
 <body>
 <style>
-    /* Reset & base styles */
     * {
       box-sizing: border-box;
     }
@@ -263,7 +58,7 @@
 }
 
 body {
-  padding-top: 120px; /* Accounts for both header and sub-header */
+  padding-top: 120px; 
 }
 
 
@@ -472,21 +267,17 @@ td form button:hover {
               $<%= order.total ? order.total.toFixed(2) : '0.00' %>
             </td>
 
-            <!-- <td data-label="Status" class="status <%= order.status %>">
-              <%= order.status %>
-            </td> -->
-                      <td data-label="Status">
-              <form action="/admin/orders/<%= order._id %>/status" method="POST" style="display:flex; align-items:center;">
-                <select name="status" style="padding:0.3rem; margin-right:0.5rem;">
-                  <% ['Pending', 'Shipped', 'Delivered', 'Cancelled'].forEach(option => { %>
-                    <option value="<%= option %>" <%= option === order.status ? 'selected' : '' %>><%= option %></option>
-                  <% }) %>
-                </select>
-                <button type="submit" style="padding: 0.3rem 0.6rem; background: #9b5d3d; color: #fff; border: none; border-radius: 4px; cursor: pointer;">
-                  Update
-                </button>
-              </form>
-            </td>
+
+            <td data-label="Status" class="status <%= order.status %>">
+            <form action="/admin/orders/<%= order._id %>/status" method="POST">
+              <select name="status">
+                <% ['Pending', 'Shipped', 'Delivered', 'Cancelled'].forEach(option => { %>
+                  <option value="<%= option %>" <%= option === order.status ? 'selected' : '' %>><%= option %></option>
+                <% }) %>
+              </select>
+              <button type="submit">Update</button>
+            </form>
+          </td>
 
 
           </tr>
