@@ -27,10 +27,10 @@ exports.getAddProduct = (req, res) => {
 
 exports.postAddProduct = async (req, res) => {
   try {
-    const { title, price, description } = req.body;
+    const { name, price, description } = req.body;
     const image = req.file ? '/upload/' + req.file.filename : null;
 
-    await Product.create({ title, price, description, image });
+    await Product.create({ name, price, description, image });
 
     res.redirect('/admin/products');
   } catch (err) {
@@ -85,7 +85,10 @@ exports.postDeleteProduct = async (req, res) => {
 };
 
 exports.listOrders = async (req, res) => {
-  const orders = await Order.find().sort({ orderDate: -1 });
+  const orders = await Order.find()
+   .populate('user')  // <<== this is the missing part
+    .sort({ createdAt: -1 }); // use createdAt since orderDate is not in your schema
+
   res.render('orders-list', { orders });
 };
 

@@ -120,12 +120,7 @@
   <label>Description</label>
   <textarea name="description" required><%= product ? product.description : '' %></textarea>
 
-  <label>Color</label>
-  <input type="text" name="color" value="<%= product ? product.color : '' %>">
-
-  <label>Department</label>
-  <input type="text" name="department" value="<%= product ? product.department : '' %>">
-
+  
   <label for="image">Product Image:</label>
   <input type="file" name="image" id="image" accept="image/*">
 

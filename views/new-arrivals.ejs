@@ -157,6 +157,18 @@
         <button type="submit">Add to Cart</button>
       </form>
     </div>
+<% products.forEach(product => { %>
+      <div class="blog-card">
+        <img src="<%= product.image %>" alt="<%= product.title %>">
+        <h2><%= product.name %></h2>
+        <p>Rs <%= product.price %></p>
+        <form action='/add-to-order' method="POST">
+          <input type="hidden" name="productId" value="<%= product._id %>">
+          <input type="number" name="qty" value="1" min="1">
+          <button type="submit">Add to Cart</button>
+        </form>
+      </div>
+    <% }) %>
 
   </section>
 
