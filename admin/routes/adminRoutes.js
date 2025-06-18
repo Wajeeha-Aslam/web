@@ -7,6 +7,40 @@ const adminController = require('../controllers/adminController');
 
 const Order = require('../../models/order');
 
+
+
+const Complaint = require('../../models/Complaint');
+const adminAuth = require('../middlewares/adminAuth');
+
+
+// router.get("/complaints",  async (req, res) => {
+//   try {
+//     const complaints = await Complaint.find()
+//       .populate('userId', 'email')
+//       .populate('orderId')
+//       .sort({ createdAt: -1 });
+//     res.render('admin-complaints', { complaints, layout: false }); // use admin layout or set false
+//   } catch (err) {
+//     console.error('Admin complaints view error:', err);
+//     res.status(500).send('Server Error');
+//   }
+// });
+
+
+router.get("/complaints", async (req, res) => {
+  try {
+    const complaints = await Complaint.find()
+      .populate('userId', 'email')   // populate user email
+      .populate('orderId')            // populate full order info
+      .sort({ createdAt: -1 });
+    
+    res.render('admin-complaints', { complaints, layout: false });
+  } catch (err) {
+    console.error('Admin complaints view error:', err);
+    res.status(500).send('Server Error');
+  }
+});
+
 // Set up multer for image upload
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {

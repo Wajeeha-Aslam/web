@@ -74,10 +74,16 @@ server.use('/', cartRoutes);
 server.use('/productImages', express.static('public/productImages'));
 
 
-server.use((req, res, next) => {
-  console.log('📥 Incoming request:', req.method, req.url);
-  next();
-});
+const complaintsRouter = require('./routes/complaints');
+server.use('/', complaintsRouter);
+
+
+
+
+// server.use((req, res, next) => {
+//   console.log('📥 Incoming request:', req.method, req.url);
+//   next();
+// });
 
 
 
