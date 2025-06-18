@@ -5,6 +5,8 @@ const mongoose= require("mongoose");
 const bcrypt = require("bcrypt");
 let server = express();
 
+
+
 server.use(express.static("public"));
 
 
@@ -72,7 +74,17 @@ server.use('/', cartRoutes);
 server.use('/productImages', express.static('public/productImages'));
 
 
+server.use((req, res, next) => {
+  console.log('📥 Incoming request:', req.method, req.url);
+  next();
+});
 
+
+
+// console.log('adminRoutes:', adminRoutes);
+// console.log('ordersRouter:', ordersRouter);
+// console.log('productsRoutes:', productsRoutes);
+// console.log('cartRoutes:', cartRoutes);
 
 
 const path = require('path');

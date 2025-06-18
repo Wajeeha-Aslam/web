@@ -63,7 +63,8 @@ router.post('/orders/status/:id', adminController.updateOrderStatus);
 
 // Public route — no adminAuth here
 router.get('/login', (req, res) => {
-  res.render('adminlogin', { error: null });
+  res.render('adminlogin');
 });
+
 
 module.exports = router;

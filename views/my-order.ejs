@@ -121,17 +121,6 @@ header {
 .checkout-btn:hover {
   background-color: #5c311f;
 }
-.flash-message {
-  color: green;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  animation: flash 1s infinite;
-}
-
-@keyframes flash {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
 
   </style>
 </head>
@@ -142,12 +131,6 @@ header {
     
   </div>
   <h1>My Orders</h1>
-   
-  
-<% if (flashMessage) { %>
-  <div class="flash-message"><%= flashMessage %></div>
-<% } %>
-
 
   <% if (orders.length === 0) { %>
     <p>You have no orders yet.</p>

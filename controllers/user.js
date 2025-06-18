@@ -14,9 +14,8 @@ async function handleUserLogin(req, res) {
   const { email, password } = req.body;
   const user = await User.findOne({ email, password });
   if (!user) {
-      return res.render('login', {
-      layout: false,
-      message: 'Invalid email or password!'
+    return res.render("login", {
+      error: "Invalid Username or password",
     });
   }
 
