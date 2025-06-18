@@ -14,6 +14,10 @@ body {
 
 
 header {
+    position: fixed;
+    top: 0;
+  left: 0;
+  right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -884,4 +888,25 @@ footer {
   cursor: pointer;
   margin: 15px;
   display: block;
+}
+/* Flash message styling */
+.flash-message {
+  position: fixed;  /* Keep it visible on top */
+  top: 80px; /* adjust to be below your header */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333; /* dark background */
+  color: #fff; /* white text */
+  padding: 15px 25px;
+  border-radius: 5px;
+  font-size: 16px;
+  z-index: 9999; /* keep above other content */
+  opacity: 0; /* hidden by default */
+  pointer-events: none; /* so it doesn't block clicks */
+  transition: opacity 0.5s ease;
+}
+
+.flash-message.show {
+  opacity: 1; 
+  pointer-events: auto;
 }

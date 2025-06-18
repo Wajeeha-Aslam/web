@@ -12,10 +12,26 @@
               footer {
               display: none;
             }}
+
+            .flash-message {
+  color: red;           /* or whatever color you like */
+  font-weight: bold;
+  animation: flash 1s infinite;
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
             </STYle>
     
     <div class="container">
      <div class="login-box">
+              <% if (message) { %>
+          <div class="flash-message"><%= message %></div>
+        <% } %>
+
      <h1>Login</h1>
        <form method="POST" action="/user/login">
  

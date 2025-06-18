@@ -1,9 +1,13 @@
 
 
-
         <section class="hero">
+
     <img src="/assets/main.jpg" alt="The main image">
     <div class="hero-content">
+         <% if (flashMessage) { %>
+  <div class="flash-message"><%= flashMessage %></div>
+<% } %> 
+
         <!-- <h3>NEW ARRIVAL</h3>
         <h1>THE STEALTH BOMBER</h1>
         <a href="#" class="bton">SHOP NOW</a> -->
