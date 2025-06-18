@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Order = require('../models/order');
 const Complaint = require('../models/Complaint');
-const auth = require('../middlewares/auth');  // your auth middleware
+const auth = require('../middlewares/auth');  
 
 // GET Contact Us page - only logged-in users
 router.get('/contact', auth, (req, res) => {
@@ -36,7 +36,7 @@ router.post('/contact', auth, async (req, res) => {
 
     await complaint.save();
 
-    res.redirect('/complaints/my');  // redirect to user complaints list page
+    res.redirect('/complaints/my');  
   } catch (err) {
     console.error('Complaint submission error:', err);
     res.status(500).send('Server error');

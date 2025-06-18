@@ -103,6 +103,11 @@ h1 {
 }
 
 
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
 
 .sub-header nav a:hover {
@@ -134,7 +139,7 @@ body {
 </header>
 </head>
 <body>
-    
+    <div class="main-content">
   <h1>All User Complaints</h1>
 <% complaints.forEach(c => { %>
   <div class="complaint-card">
@@ -144,6 +149,6 @@ body {
     <strong>Submitted At:</strong> <%= new Date(c.createdAt).toLocaleString() %>
   </div>
 <% }) %>
-
+</div>
 </body>
 </html>
