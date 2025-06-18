@@ -1,0 +1,141 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Complaints</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 40px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    li {
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    li:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    strong {
+      display: inline-block;
+      min-width: 120px;
+      color: #555;
+    }
+
+    li + li {
+      border-top: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Complaints</h1>
+  <ul>
+    <% complaints.forEach(function(complaint) { %>
+      <li>
+        <p><strong>Order ID:</strong> <%= complaint.orderId %></p>
+        <p><strong>Message:</strong> <%= complaint.message %></p>
+        <p><strong>Submitted At:</strong> <%= complaint.createdAt.toLocaleString() %></p>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Complaints</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 40px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color:  #5c311f;
+      margin-bottom: 30px;
+    }
+
+    .complaints-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .complaint-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .complaint-card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .complaint-card p {
+      margin: 8px 0;
+    }
+
+    strong {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div>
+        <h1>.</h1>
+      
+        
+        
+
+
+
+
+  </div>
+  <h1>My Complaints</h1>
+  <div class="complaints-container">
+    <% complaints.forEach(function(complaint) { %>
+      <div class="complaint-card">
+        <p><strong>Order ID:</strong> <%= complaint.orderId._id || complaint.orderId %></p>
+        <p><strong>Message:</strong> <%= complaint.message %></p>
+        <p><strong>Submitted At:</strong> <%= complaint.createdAt.toLocaleString() %></p>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>

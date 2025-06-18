@@ -1,0 +1,32 @@
+
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <link rel="stylesheet" href="/css/signupcss.css">
+</head>
+
+
+
+<body>
+    <div class="auth-container">
+    <div class="auth-box">
+    <h1>Sign Up</h1>
+    <form method="POST" action="/user/signup">
+        <label for="">Full Name</label>
+        <input type="text" required name="name"placeholder="Full name">
+         <label for="">Email</label>
+        <input type="text" required name="email"placeholder="E-mail">
+         <label for="">Password</label>
+        <input type="text" required name="password"placeholder="Password">
+       <button type="submit">Create Account</button>
+    </form>
+    <div class="auth-switch">
+        <a href="/login">Login</a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

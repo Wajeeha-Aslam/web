@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us / Submit a Complaint</title>
+  <style>
+    body {
+      background: #f9f9f9;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color:  #5c311f;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Contact Us /Submit a Complaint</h1>
+   <form action="/contact" method="POST">
+  <label for="orderId">Order ID:</label>
+  <input type="text" id="orderId" name="orderId" required>
+
+  <label for="message">Your Complaint:</label>
+  <textarea id="message" name="message" rows="5" required></textarea>
+
+  <button type="submit">Submit Complaint</button>
+</form>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orders List</title>
+  
+</head>
+<body>
+<style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f7;
+      color: grey;
+      line-height: 1.6;
+      padding-top: 160px;
+    }
+
+
+
+.sub-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #9b5d3d;
+  padding: 1rem 2rem;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sub-header .left h2 {
+  margin: 0;
+  color: white;
+}
+
+.sub-header .right nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 1.5rem;
+}
+
+
+
+
+.sub-header nav a:hover {
+  color: #ffe5c0;
+}
+
+body {
+  padding-top: 120px; 
+}
+
+
+    main {
+      max-width: 1100px;
+      margin: 2.5rem auto;
+      padding: 0 2rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.07);
+    }
+
+    main h2 {
+      margin-bottom: 1.5rem;
+      color: #7a442a;
+      font-weight: 700;
+      font-size: 2rem;
+      border-bottom: 2px solid #9b5d3d;
+      padding-bottom: 0.3rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    thead {
+      background: #9b5d3d;
+      color: #fff;
+    }
+
+    th, td {
+      padding: 1rem 1.2rem;
+      border: 1px solid #ddd;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    ul.items-list {
+      list-style: disc inside;
+      margin: 0;
+      padding-left: 1rem;
+    }
+
+    ul.items-list li {
+      margin-bottom: 0.3rem;
+      color: #5a3e26;
+    }
+
+    /* Customer name cell */
+    td.customer-name {
+      font-weight: 600;
+      color: #7a442a;
+    }
+    
+    /* Status badges */
+    td.status {
+      font-weight: 700;
+      padding: 0.6rem 0.8rem;
+      text-align: center;
+      border-radius: 4px;
+      color: white;
+      width: 100px;
+    }
+
+    td.status.Pending {
+      background-color: #f0ad4e; /* orange */
+    }
+
+    td.status.Shipped {
+      background-color: #5bc0de; /* blue */
+    }
+
+    td.status.Delivered {
+      background-color: #5cb85c; /* green */
+    }
+
+    td.status.Cancelled {
+      background-color: #d9534f; /* red */
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: 1rem;
+      }
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead tr {
+        display: none;
+      }
+      tbody tr {
+        margin-bottom: 1.5rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1rem;
+        background: #fff;
+      }
+      tbody tr td {
+        border: none;
+        padding: 0.5rem 0;
+        position: relative;
+        padding-left: 50%;
+      }
+      tbody tr td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        font-weight: 600;
+        color: #7a442a;
+      }
+      ul.items-list {
+        padding-left: 0;
+        list-style: none;
+      }
+    }td form {
+  display: flex;
+  flex-direction: column;
+}
+
+td form select {
+  margin-bottom: 0.3rem;
+  padding: 0.3rem;
+}
+
+td form button {
+  background: #9b5d3d;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+td form button:hover {
+  background: #7a442a;
+}
+
+  </style>
+
+
+<main>
+ <!-- Header with Navigation -->
+<header>
+  <div class="sub-header">
+  <div class="left">
+    <h2>Admin Dashboard</h2>
+  </div>
+  <div class="right">
+    <nav>
+      <a href="/admin/products">Products</a>
+      <a href="/admin/products/add">Add Product</a>
+      <a href="/admin/orders">Orders</a>
+      <a href="/admin/logout">Logout</a>
+    </nav>
+  </div>
+</div>
+
+</header>
+
+</div>
+  <h2>All Orders</h2>
+
+  <% if (!orders || orders.length === 0) { %>
+    <p>No orders found.</p>
+  <% } else { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Items</th>
+          <th>Total ($)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach(order => { %>
+          <tr>
+            <td data-label="Customer" class="customer-name">
+              <%= order.user?.name || 'Unknown Customer' %>
+            </td>
+           
+            <td data-label="Items">
+              <ul class="items-list">
+                <% if (Array.isArray(order.items)) { %>
+                  <% order.items.forEach(item => { %>
+                    <li>
+                      <%= item.name || (item.productId && item.productId.name) || 'Unknown Product' %> 
+                      (x<%= item.qty %>)
+                    </li>
+                  <% }); %>
+                <% } else { %>
+                  <li>No items</li>
+                <% } %>
+              </ul>
+            </td>
+
+            <td data-label="Total">
+              $<%= order.total ? order.total.toFixed(2) : '0.00' %>
+            </td>
+
+
+            <td data-label="Status" class="status <%= order.status %>">
+            <form action="/admin/orders/<%= order._id %>/status" method="POST">
+              <select name="status">
+                <% ['Pending', 'Shipped', 'Delivered', 'Cancelled'].forEach(option => { %>
+                  <option value="<%= option %>" <%= option === order.status ? 'selected' : '' %>><%= option %></option>
+                <% }) %>
+              </select>
+              <button type="submit">Update</button>
+            </form>
+          </td>
+
+
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+
+</main>
+
+</body>
+</html>

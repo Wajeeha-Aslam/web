@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout - Private White V.C.</title>
+  <link rel="stylesheet" href="/css/checkoutpw.css">
+  
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <h2>PRIVATE WHITE V.C.</h2>
+      <form id="checkoutForm">
+        <div class="section">
+          <h3>Contact</h3>
+          <input type="email" id="email" placeholder="Email" required />
+          <div id="emailError" class="error"></div>
+          <label><input type="checkbox" checked /> Email me with news and offers</label>
+        </div>
+        <div class="section">
+          <h3>Delivery</h3>
+          <select id="country">
+            <option value="">Country/Region</option>
+          </select>
+          <div id="countryError" class="error"></div>
+          <input type="text" id="firstName" placeholder="First name (optional)" />
+          <input type="text" id="lastName" placeholder="Last name" required />
+          <div id="lastNameError" class="error"></div>
+          <input type="text" id="address" placeholder="Address" required />
+          <div id="addressError" class="error"></div>
+          <input type="text" placeholder="Apartment, suite, etc. (optional)" />
+          <input type="text" id="city" placeholder="City" required />
+          <div id="cityError" class="error"></div>
+          <input type="text" placeholder="Postal code (optional)" />
+          <input type="tel" id="phone" placeholder="Phone" required />
+          <div id="phoneError" class="error"></div>
+          <label><input type="checkbox" /> Text me with news and offers</label>
+        </div>
+        <div class="section shipping-method">
+          <h3>Shipping method</h3>
+          <p><strong>Express Courier (Air)</strong><br/>4 to 5 business days<br/>Prepayment of duties and taxes supported</p>
+        </div>
+        <div class="section duties-taxes">
+          <h3>Duties and taxes</h3>
+          <label><input type="radio" name="duties" checked /> Pay now (No additional fees on delivery)</label>
+          <label><input type="radio" name="duties" /> Pay on delivery (Additional fees may apply)</label>
+        </div>
+        <div class="section payment">
+          <h3>Payment</h3>
+          <label><input type="radio" name="payment" checked /> Credit or Debit Card</label>
+          <input type="text" id="cardNumber" placeholder="Card number" required />
+          <div id="cardError" class="error"></div>
+          <input type="text" placeholder="Expiration date (MM / YY)" />
+          <input type="text" placeholder="Security code" />
+          <input type="text" placeholder="Name on card" />
+          <label><input type="checkbox" checked /> Use shipping address as billing address</label>
+          <button type="button">More Payment Options</button>
+        </div>
+        <div class="remember-me">
+          <label><input type="checkbox" checked /> Save my information for a faster checkout with a Shop account</label>
+        </div>
+        <button type="submit">Pay Now</button>
+      </form>
+    </div>
+    <div class="right">
+      <div class="order-summary">
+        <div class="summary-item"><span>Subtotal</span><span></span></div>
+        <div class="summary-item"><span>Shipping</span><span>FREE</span></div>
+        <div class="summary-item"><span>Duties</span><span></span></div>
+        <div class="summary-item"><span>Taxes</span><span></span></div>
+        <div class="summary-item total"><span>Total</span><span></span></div>
+      </div>
+      <div class="section">
+        <h4>Complete the look</h4>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <p>Product Image</p>
+            <p>Product Name</p>
+          </div>
+          <button type="button">Add Product</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      let valid = true;
+
+      const email = document.getElementById('email');
+      const lastName = document.getElementById('lastName');
+      const address = document.getElementById('address');
+      const city = document.getElementById('city');
+      const phone = document.getElementById('phone');
+      const cardNumber = document.getElementById('cardNumber');
+
+      if (!email.value) {
+        valid = false;
+        document.getElementById('emailError').innerText = "Email is required";
+      } else {
+        document.getElementById('emailError').innerText = "";
+      }
+
+      if (!lastName.value) {
+        valid = false;
+        document.getElementById('lastNameError').innerText = "Last name is required";
+      } else {
+        document.getElementById('lastNameError').innerText = "";
+      }
+
+      if (!address.value) {
+        valid = false;
+        document.getElementById('addressError').innerText = "Address is required";
+      } else {
+        document.getElementById('addressError').innerText = "";
+      }
+
+      if (!city.value) {
+        valid = false;
+        document.getElementById('cityError').innerText = "City is required";
+      } else {
+        document.getElementById('cityError').innerText = "";
+      }
+
+      if (!phone.value) {
+        valid = false;
+        document.getElementById('phoneError').innerText = "Phone is required";
+      } else {
+        document.getElementById('phoneError').innerText = "";
+      }
+
+      if (!cardNumber.value) {
+        valid = false;
+        document.getElementById('cardError').innerText = "Card number is required";
+      } else {        document.getElementById('cardError').innerText = "";
+      }
+
+      if (valid) {
+        alert("Payment processed successfully!");
+      }
+function validateField(fieldId, errorId, message) {
+  const field = document.getElementById(fieldId);
+  const errorDiv = document.getElementById(errorId);
+
+  if (!field.value.trim()) {
+    field.classList.add('input-error');
+    errorDiv.innerText = message;
+    return false;
+  } else {
+    field.classList.remove('input-error');
+    errorDiv.innerText = '';
+    return true;
+  }
+}
+
+document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  let valid = true;
+
+  valid &= validateField('email', 'emailError', 'Email is required');
+  valid &= validateField('lastName', 'lastNameError', 'Last name is required');
+  valid &= validateField('address', 'addressError', 'Address is required');
+  valid &= validateField('city', 'cityError', 'City is required');
+  valid &= validateField('phone', 'phoneError', 'Phone is required');
+  valid &= validateField('cardNumber', 'cardError', 'Card number is required');
+
+  if (valid) {
+    alert("Payment processed successfully!");
+  }
+});
+
+      
+    });
+  </script>
+</body>
+</html>

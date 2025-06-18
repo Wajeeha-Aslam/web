@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private White V.C.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+          <header>
+        <div class="menu-icon">
+                <i class="fa fa-bars" onclick="openMenu()"></i>
+            <div id="sideMenu" class="side-menu">
+           <span class="closeBtn" onclick="closeMenu()">×</span>
+
+            <div class="sidebar">
+                
+                <ul class="menu-list">
+                    <li><a href="/landingpage">New</a></li>
+                    <li><a href="/new-arrivals">New Arrivals</a></li>
+                    <li><a href="#">Heroes</a></li>
+                    <li><a href="#">Royal Hospital Chelsea</a></li>
+                    <li><a href="#">Spycraft - Spring 25</a></li>
+                    <li><a href="#">Permanent Style</a></li> 
+                    <li><a href="#">Coats & Jackets</a></li>
+                    <li><a href="#">Blazers & Shirts</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Shop All</a></li>
+                </ul>
+                <div class="bottom-links">
+                    <a href="#">About</a>
+                    <a href="#">Journal</a>
+                    <a href="#">The Store</a>
+                </div>
+                </div>
+
+
+           </div>
+           
+           <script>
+  function openMenu() {
+    document.getElementById("sideMenu").style.width = "250px"; // Or whatever width you want
+  }
+
+  function closeMenu() {
+    document.getElementById("sideMenu").style.width = "0";
+  }
+</script>
+
+
+
+          
+        </div>
+        <div class="logo">
+            <h3>Private White V.C.</h3>
+            <p>HANDMADE IN ENGLAND</p>
+        </div>
+       
+        <div class="icons">
+               <!-- <i class="fa fa-search"></i> -->
+
+
+               <% if (user) { %>
+               <a href="/profile"><i class="fa fa-user"></i></a>
+               <% } else { %>
+                <a href="/login"><i class="fa fa-user"></i></a>
+               <% } %>
+
+
+
+                <a href="/my-orders"><i class="fa fa-shopping-cart"></i> </a>
+                <a href="/admin/login">Admin</a>
+                            <a href="/contact" class="contact-btn">
+            <i class="fas fa-envelope"></i> Contact Us
+            </a>
+
+
+             <a href="/complaints/my" class="complaints-btn">
+    <i class="fa-solid fa-comment-dots"></i> My Complaints
+  </a>
+  <a href="/logout">Logout</a>
+</div>
+                
+</div> 
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const userIcon = document.getElementById('user-icon');
+    if (userIcon) {
+      userIcon.style.cursor = 'pointer';
+      userIcon.addEventListener('click', () => {
+        window.location.href = '/login';
+      });
+    }
+  });
+</script>
+
+    </header>
+
+    <%- body %>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About</h3>
+                <p>Every garment is handcrafted in the last remaining clothing factory in the world's first industrial city.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Care</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Details</h3>
+                <p>1 Cottenham Lane, Salford, Manchester, M3 7LJ</p>
+                <p>Telephone: +44 (0)161 834 3062</p>
+                <p>Our customer support is available Monday to Friday: 8:30am-4pm GMT*</p>
+                <p>*Please note during holiday seasons and bank holidays, opening hours may differ.</p>
+            </div>
+            <div class="footer-section newsletter">
+                <h3>Sign up for the latest news</h3>
+                <form>
+                    <input type="email" placeholder="E-mail">
+                    <button type="submit"><i class="bi bi-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+            <div class="payments">
+                <img src="assets/visa.png" alt="Visa">
+                <img src="assets/mastercard.png" alt="Mastercard">
+                <img src="assets/paypal.png" alt="PayPal">
+                <img src="assets/applepay.png" alt="Apple Pay">
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

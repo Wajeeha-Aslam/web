@@ -1,0 +1,48 @@
+<!-- 
+    <h1>Admin Login</h1>
+    <% if (typeof error !== 'undefined') { %>
+      <p class="error"><%= error %></p>
+    <% } %>
+    <form action="/adminlogin" method="POST">
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+  -->
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="/css/logincss.css">
+</head>
+
+
+<body>
+              <STYle>body {
+              footer {
+              display: none;
+            }}
+            </STYle>
+    
+    <div class="container">
+     <div class="login-box">
+     <h1> Admin Login</h1>
+       <form method="POST" action="/admin/adminlogin">
+        
+
+        
+         <label for="">Name</label>
+        <input type="text"  required name="username"placeholder="Name">
+         <label for="">Email</label>
+        <input type="text"  required name="email"placeholder="E-mail">
+         <label for="">Password</label>
+        <input type="text" required name="password"placeholder="Password">
+        <div class="forgot"><a href="#">Forgot your password?</a></div>
+        <button type="submit">Login</button>
+         
+    </form>
+       </div>
+  </div>
+</body>
+</html>

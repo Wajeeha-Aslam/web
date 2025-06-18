@@ -1,0 +1,81 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #000;
+}
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.left, .right {
+  padding: 20px;
+}
+
+.left {
+  width: 60%;
+  border-right: 1px solid #ddd;
+}
+
+.right {
+  width: 40%;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.order-summary, .shipping-method, .duties-taxes, .payment {
+  background: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.remember-me {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.checkbox-label {
+  font-weight: normal;
+  display: inline-block;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: -8px;
+  margin-bottom: 10px;
+}
+
+.input-error {
+  border: 2px solid red;
+}
